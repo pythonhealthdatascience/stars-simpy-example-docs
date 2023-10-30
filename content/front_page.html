@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -75,6 +76,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -131,6 +141,7 @@ const thebe_selector_output = ".output, .cell_output"
   
 
 <a class="navbar-brand logo" href="#">
+  
   
   
   
@@ -329,10 +340,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -340,7 +351,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -367,8 +378,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributors">Contributors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#towards-sharing-tools-and-artifacts-for-reuable-simulation-example-enhanced-documentation-for-a-simpy-model">Towards Sharing Tools and Artifacts for Reuable Simulation: example enhanced documentation for a <code class="docutils literal notranslate"><span class="pre">simpy</span></code> model.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#author-orcids">Author ORCIDs</a></li>
 </ul>
             </nav>
         </div>
@@ -383,27 +394,24 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="preface">
 <h1>Preface<a class="headerlink" href="#preface" title="Permalink to this heading">#</a></h1>
 <p><a class="reference external" href="https://doi.org/10.5281/zenodo.6497477"><img alt="DOI" src="https://zenodo.org/badge/DOI/10.5281/zenodo.6497477.svg" /></a></p>
-<p>This book contains example documentation and open working for a computer simulation model. The model is a based on the treatment centre example in Nelson [1]. The model is implemented in <code class="docutils literal notranslate"><span class="pre">python</span></code> and <code class="docutils literal notranslate"><span class="pre">simpy</span></code>.</p>
-<p>The book covers the following aspects of open working for simulation:</p>
+<p>This book contains example enhanced documentation and open working for a discrete-event simulation model. The model is a based on the treatment centre example in Nelson [1]. The model is implemented in <code class="docutils literal notranslate"><span class="pre">python</span></code> and <code class="docutils literal notranslate"><span class="pre">simpy</span></code>.</p>
+<section id="towards-sharing-tools-and-artifacts-for-reuable-simulation-example-enhanced-documentation-for-a-simpy-model">
+<h2>Towards Sharing Tools and Artifacts for Reuable Simulation: example enhanced documentation for a <code class="docutils literal notranslate"><span class="pre">simpy</span></code> model.<a class="headerlink" href="#towards-sharing-tools-and-artifacts-for-reuable-simulation-example-enhanced-documentation-for-a-simpy-model" title="Permalink to this heading">#</a></h2>
+<p>The materials and methods in this repository support work towards developing the S.T.A.R.S healthcare framework (<strong>S</strong>haring <strong>T</strong>ools and <strong>A</strong>rtifacts for <strong>R</strong>eusable <strong>S</strong>imulations in healthcare).  The code and written materials here demonstrate the application of S.T.A.R.S’ version 1 to sharing a <code class="docutils literal notranslate"><span class="pre">simpy</span></code> discrete-event simuilation model and associated research artifacts.</p>
 <ul class="simple">
-<li><p>Sharing your model code and parameters with other researchers and simulation modellers.</p></li>
-<li><p>An example of documenting your model using the STRESS reporting checklist (for DES).</p></li>
-<li><p>Providing a simple executable version of your model for other to verify results.</p></li>
-</ul>
-<section id="contributors">
-<h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Thomas Monks, University of Exeter</p></li>
-<li><p>Alison Harper, University of Exeter</p></li>
-<li><p>Simon Taylor, Brunel University London</p></li>
-<li><p>Anastasia Anagnostou, Brunel University London</p></li>
+<li><p>All artifacts in this repository are linked to study researchers via ORCIDs;</p></li>
+<li><p>Model code is made available under a MIT license;</p></li>
+<li><p>Python dependencies are managed through <code class="docutils literal notranslate"><span class="pre">conda</span></code>;`</p></li>
+<li><p>The python code itself can be viewed and executed in Jupyter notebooks via <a class="reference external" href="https://mybinder.org">Binder</a>;</p></li>
+<li><p>The model is documented and explained in a <a class="reference external" href="https://pythonhealthdatascience.github.io/stars-simpy-examplar-docs">Jupyter book website</a> served up by GitHub pages;</p></li>
+<li><p>The materials are deposited and made citatable using Zenodo;</p></li>
+<li><p>The models are sharable with other researchers and the NHS without the need to install software.</p></li>
 </ul>
 </section>
-<section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p><em>Nelson. B.L. (2013). <a class="reference external" href="https://www.amazon.co.uk/Foundations-Methods-Stochastic-Simulation-International/dp/1461461596/ref=sr_1_1?dchild=1&amp;keywords=foundations+and+methods+of+stochastic+simulation&amp;qid=1617050801&amp;sr=8-1">Foundations and methods of stochastic simulation: A first course</a>. Springer.</em></p></li>
-</ol>
+<section id="author-orcids">
+<h2>Author ORCIDs<a class="headerlink" href="#author-orcids" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://orcid.org/0000-0001-5274-5037"><img alt="ORCID: Harper" src="https://img.shields.io/badge/ORCID-0000--0001--5274--5037-brightgreen" /></a>
+<a class="reference external" href="https://orcid.org/0000-0003-2631-4481"><img alt="ORCID: Monks" src="https://img.shields.io/badge/ORCID-0000--0003--2631--4481-brightgreen" /></a></p>
 </section>
 <div class="toctree-wrapper compound">
 </div>
@@ -438,11 +446,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="right-next"
        href="01_introduction/01_overview.html"
@@ -453,10 +460,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -471,8 +475,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributors">Contributors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#towards-sharing-tools-and-artifacts-for-reuable-simulation-example-enhanced-documentation-for-a-simpy-model">Towards Sharing Tools and Artifacts for Reuable Simulation: example enhanced documentation for a <code class="docutils literal notranslate"><span class="pre">simpy</span></code> model.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#author-orcids">Author ORCIDs</a></li>
 </ul>
   </nav></div>
 
@@ -520,8 +524,8 @@ By Thomas Monks
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
 
   <footer class="bd-footer">
   </footer>
