@@ -12,7 +12,7 @@ The materials and methods in this repository support work towards developing the
 * Model code is made available under a MIT license;
 * Python dependencies are managed through `conda`;`
 * The python code itself can be viewed and executed in Jupyter notebooks via [Binder](https://mybinder.org); 
-* The model is documented and explained in a [Jupyter book website](https://pythonhealthdatascience.github.io/stars-simpy-examplar-docs) served up by GitHub pages;
+* The model is documented and explained in a [Jupyter book website](https://pythonhealthdatascience.github.io/stars-simpy-example-docs) served up by GitHub pages;
 * The materials are deposited and made citatable using Zenodo;
 * The models are sharable with other researchers and the NHS without the need to install software.
 
