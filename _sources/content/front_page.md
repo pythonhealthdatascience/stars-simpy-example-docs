@@ -4,7 +4,7 @@
 
 This book contains example enhanced documentation and open working for a discrete-event simulation model. The model is a based on the treatment centre example in Nelson [1]. The model is implemented in `python` and `simpy`.
 
-##   Towards Sharing Tools and Artifacts for Reuable Simulation: example enhanced documentation for a `simpy` model. 
+##   Towards Sharing Tools and Artifacts for Reusable Simulation: example enhanced documentation for a `simpy` model. 
 
 The materials and methods in this repository support work towards developing the S.T.A.R.S healthcare framework (**S**haring **T**ools and **A**rtifacts for **R**eusable **S**imulations in healthcare).  The code and written materials here demonstrate the application of S.T.A.R.S' version 1 to sharing a `simpy` discrete-event simuilation model and associated research artifacts.  
 
