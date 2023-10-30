@@ -20,9 +20,9 @@ authors:
     affiliation: University of Exeter
     orcid: 'https://orcid.org/0000-0001-5274-5037'
 repository-code: >-
-  https://github.com/pythonhealthdatascience/stars-simpy-examplar-docs
+  https://github.com/pythonhealthdatascience/stars-simpy-example-docs
 url: >-
-  https://pythonhealthdatascience.github.io/stars-simpy-examplar-docs
+  https://pythonhealthdatascience.github.io/stars-simpy-example-docs
 keywords:
   - Discrete-event simulation
   - Open Science
