@@ -17,7 +17,7 @@ The materials and methods in this repository support work towards developing the
 * Model code is made available under a MIT license;
 * Python dependencies are managed through `conda`;`
 * The python code itself can be viewed and executed in Jupyter notebooks via [Binder](https://mybinder.org); 
-* The model is documented and explained in a [Jupyter book website](https://pythonhealthdatascience.github.io/stars-simpy-examplar-docs) served up by GitHub pages;
+* The model is documented and explained in a [Jupyter book website](https://pythonhealthdatascience.github.io/stars-simpy-example-docs) served up by GitHub pages;
 * The materials are deposited and made citatable using Zenodo;
 * The models are sharable with other researchers and the NHS without the need to install software.
 
@@ -56,15 +56,15 @@ To Add.
 
 ## Online Notebooks via Binder
 
-The python code for the model has been setup to run online in Jupyter notebooks via binder [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/pythonhealthdatascience/stars-ciw-examplar/HEAD)
+The python code for the model has been setup to run online in Jupyter notebooks via binder [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/pythonhealthdatascience/stars-ciw-example/HEAD)
 
 > Binder is a free service.  If it has not been used in a while Binder will need to re-containerise the code repository, and push to binderhub. This will take several minutes. After that the online environment will be quick to load.
 
 ## Online documentation produced by Jupyter-book
 
-[![Read the Docs](https://readthedocs.org/projects/pip/badge/?version=latest)](https://pythonhealthdatascience.github.io/stars-simpy-examplar-docs)
+[![Read the Docs](https://readthedocs.org/projects/pip/badge/?version=latest)](https://pythonhealthdatascience.github.io/stars-simpy-example-docs)
 
-* The documentation can be access at [https://pythonhealthdatascience.github.io/stars-simpy-examplar-docs](https://pythonhealthdatascience.github.io/stars-simpy-examplar-docs)
+* The documentation can be access at [https://pythonhealthdatascience.github.io/stars-simpy-examplar-docs](https://pythonhealthdatascience.github.io/stars-simpy-example-docs)
 
 ## How to create the website locally
 
