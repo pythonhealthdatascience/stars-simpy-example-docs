@@ -28,10 +28,15 @@ The materials and methods in this repository support work towards developing the
 
 ## Citation
 
-> 
+> Monks, T., & Harper, A. Towards Sharing Tools and Artifacts for Reuable Simulation: example enhanced documentation for a `simpy` model. [Computer software]. https://github.com/pythonhealthdatascience/stars-simpy-examplar-docs
 
 ```bibtex
-
+@software{Monks_Towards_Sharing_Tools,
+author = {Monks, Thomas and Harper, Alison},
+license = {MIT},
+title = {{Towards Sharing Tools and Artifacts for Reuable Simulation: example enhanced documentation for a `simpy` model.}},
+url = {https://github.com/pythonhealthdatascience/stars-simpy-examplar-docs}
+}
 ```
 
 ## Funding
