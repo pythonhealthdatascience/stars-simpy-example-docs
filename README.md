@@ -7,7 +7,7 @@
 [![License: MIT](https://img.shields.io/badge/ORCID-0000--0003--2631--4481-brightgreen)](https://orcid.org/0000-0003-2631-4481)
 [<img src="https://img.shields.io/static/v1?label=dockerhub&message=images&color=important?style=for-the-badge&logo=docker">](https://hub.docker.com/r/tommonks01/treat_sim)
 
-#   Towards Sharing Tools and Artifacts for Reuable Simulation: example enhanced documentation for a `simpy` model. 
+#   Towards Sharing Tools and Artifacts for Reusable Simulation: example enhanced documentation for a `simpy` model. 
 
 ## Overview
 
@@ -28,13 +28,13 @@ The materials and methods in this repository support work towards developing the
 
 ## Citation
 
-> Monks, T., & Harper, A. (2023). Towards Sharing Tools and Artifacts for Reuable Simulation: example enhanced documentation for a `simpy` model. (v1.1.0). Zenodo. https://doi.org/10.5281/zenodo.10054063
+> Monks, T., & Harper, A. (2023). Towards Sharing Tools and Artifacts for Reusable Simulation: example enhanced documentation for a `simpy` model. (v1.1.0). Zenodo. https://doi.org/10.5281/zenodo.10054063
 
 ```bibtex
 @software{stars_example_docs,
   author       = {Monks, Thomas and
                   Harper, Alison},
-  title        = {{Towards Sharing Tools and Artifacts for Reuable 
+  title        = {{Towards Sharing Tools and Artifacts for Reusable 
                    Simulation: example enhanced documentation for a
                    `simpy` model.}},
   month        = oct,
