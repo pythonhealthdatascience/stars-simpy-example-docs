@@ -1,5 +1,5 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/pythonhealthdatascience/stars-ciw-examplar/HEAD)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10051495.svg)](https://doi.org/10.5281/zenodo.10051495)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10054063.svg)](https://doi.org/10.5281/zenodo.10054063)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/release/python-360+/)
 [![Read the Docs](https://readthedocs.org/projects/pip/badge/?version=latest)](https://pythonhealthdatascience.github.io/stars-simpy-examplar-docs)
@@ -28,14 +28,21 @@ The materials and methods in this repository support work towards developing the
 
 ## Citation
 
-> Monks, T., & Harper, A. Towards Sharing Tools and Artifacts for Reuable Simulation: example enhanced documentation for a `simpy` model. [Computer software]. https://github.com/pythonhealthdatascience/stars-simpy-examplar-docs
+> Monks, T., & Harper, A. (2023). Towards Sharing Tools and Artifacts for Reuable Simulation: example enhanced documentation for a `simpy` model. (v1.1.0). Zenodo. https://doi.org/10.5281/zenodo.10054063
 
 ```bibtex
-@software{Monks_Towards_Sharing_Tools,
-author = {Monks, Thomas and Harper, Alison},
-license = {MIT},
-title = {{Towards Sharing Tools and Artifacts for Reuable Simulation: example enhanced documentation for a `simpy` model.}},
-url = {https://github.com/pythonhealthdatascience/stars-simpy-examplar-docs}
+@software{stars_example_docs,
+  author       = {Monks, Thomas and
+                  Harper, Alison},
+  title        = {{Towards Sharing Tools and Artifacts for Reuable 
+                   Simulation: example enhanced documentation for a
+                   `simpy` model.}},
+  month        = oct,
+  year         = 2023,
+  publisher    = {Zenodo},
+  version      = {v1.1.0},
+  doi	       = {10.5281/zenodo.10054063},
+  url	       = {https://doi.org/10.5281/zenodo.10054063},
 }
 ```
 
