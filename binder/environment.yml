@@ -1,4 +1,4 @@
-name: treatment_sim
+name: stars_docs
 channels:
   - conda-forge
 dependencies:
@@ -11,4 +11,6 @@ dependencies:
   - python=3.8.12
   - scipy=1.6.1
   - simpy=4.0.1
+  - pip:
+    - jupyter-book==0.15.1
 
