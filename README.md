@@ -64,7 +64,7 @@ The python code for the model has been setup to run online in Jupyter notebooks 
 
 [![Read the Docs](https://readthedocs.org/projects/pip/badge/?version=latest)](https://pythonhealthdatascience.github.io/stars-simpy-example-docs)
 
-* The documentation can be access at [https://pythonhealthdatascience.github.io/stars-simpy-examplar-docs](https://pythonhealthdatascience.github.io/stars-simpy-example-docs)
+* The documentation can be access at [https://pythonhealthdatascience.github.io/stars-simpy-example-docs](https://pythonhealthdatascience.github.io/stars-simpy-example-docs)
 
 ## How to create the website locally
 
