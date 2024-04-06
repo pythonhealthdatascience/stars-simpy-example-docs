@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>5 Implementation &#8212; Treatment centre simulation</title>
+    <title>5. Implementation &#8212; Treatment centre simulation</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/03_stress/05_implementation';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="6 Code access" href="06_code_access.html" />
+    <link rel="next" title="6. Code access" href="06_code_access.html" />
     <link rel="prev" title="4. Experimentation" href="04_experimentation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -141,6 +141,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../front_page.html">
@@ -186,8 +187,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="02_logic.html">2. Model logic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_data.html">3. Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_experimentation.html">4. Experimentation</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">5 Implementation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06_code_access.html">6 Code access</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_code_access.html">6. Code access</a></li>
 </ul>
 
     </div>
@@ -341,6 +342,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -350,6 +352,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -371,7 +374,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>5 Implementation</h1>
+    <h1>5. Implementation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -397,7 +400,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="implementation">
-<h1>5 Implementation<a class="headerlink" href="#implementation" title="Permalink to this heading">#</a></h1>
+<h1>5. Implementation<a class="headerlink" href="#implementation" title="Permalink to this heading">#</a></h1>
 <section id="software-or-programming-language">
 <h2>5.1 Software or programming language<a class="headerlink" href="#software-or-programming-language" title="Permalink to this heading">#</a></h2>
 <p>The simulation model was developed using python 3.8 and simpy 4.0.  Simpy details are here: <a class="reference external" href="https://simpy.readthedocs.io/en/latest/">https://simpy.readthedocs.io/en/latest/</a></p>
@@ -417,8 +420,8 @@ document.write(`
 </section>
 <section id="random-sampling">
 <h2>5.2 Random sampling<a class="headerlink" href="#random-sampling" title="Permalink to this heading">#</a></h2>
-<p>All sampling uses <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generator.html"><code class="docutils literal notranslate"><span class="pre">numpy.random.Generator</span></code></a>.  A <code class="docutils literal notranslate"><span class="pre">numpy</span></code> generator object implements the Permuted Congruential Generator 64-bit (PCG64; period = <span class="math notranslate nohighlight">\(2^{128}\)</span>).</p>
-<p>Common random number streams are used in the model.  These are created by through seed vectors (one seed for each activity in each replication).</p>
+<p>All sampling uses <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generator.html"><code class="docutils literal notranslate"><span class="pre">numpy.random.Generator</span></code></a>.  A <code class="docutils literal notranslate"><span class="pre">numpy</span></code> generator object implements the Permuted Congruential Generator 64-bit (PCG64; period = <span class="math notranslate nohighlight">\(2^{128}\)</span>; maximum number of streams = <span class="math notranslate nohighlight">\(2^{63}\)</span>).</p>
+<p>Repeatable experiments and common random number streams are used in the model.  Non overlapping streams are creating using a <code class="docutils literal notranslate"><span class="pre">numpy.random.SeedSequence</span></code>. One seed - the replication number - is passed to a <code class="docutils literal notranslate"><span class="pre">SeedSequence</span></code> and <span class="math notranslate nohighlight">\(n\)</span> child seeds are spawned that are then used to create the <span class="math notranslate nohighlight">\(n\)</span> streams. The seeds spawned by <code class="docutils literal notranslate"><span class="pre">SeedSequence</span></code> ensure that these streams are “very likely” non-overlapping.</p>
 </section>
 <section id="model-execution">
 <h2>5.3 Model execution<a class="headerlink" href="#model-execution" title="Permalink to this heading">#</a></h2>
@@ -458,7 +461,7 @@ document.write(`
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="04_experimentation.html"
@@ -474,7 +477,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">6 Code access</p>
+        <p class="prev-next-title">6. Code access</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -518,6 +521,7 @@ By Thomas Monks
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -544,8 +548,8 @@ By Thomas Monks
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

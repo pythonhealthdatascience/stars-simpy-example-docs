@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
-  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -139,6 +139,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../front_page.html">
@@ -184,8 +185,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../03_stress/02_logic.html">2. Model logic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../03_stress/03_data.html">3. Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../03_stress/04_experimentation.html">4. Experimentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../03_stress/05_implementation.html">5 Implementation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../03_stress/06_code_access.html">6 Code access</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_stress/05_implementation.html">5. Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_stress/06_code_access.html">6. Code access</a></li>
 </ul>
 
     </div>
@@ -388,6 +389,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -397,6 +399,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -476,7 +479,7 @@ document.write(`
 <hr class="docutils" />
 <section id="imports">
 <h2>1. Imports<a class="headerlink" href="#imports" title="Permalink to this heading">#</a></h2>
-<p>The model is provided with a conda virtual environment <code class="docutils literal notranslate"><span class="pre">treatment_sim</span></code>.  Details are available in the <a class="reference external" href="https://github.com/TomMonks/treatment-centre-sim/blob/main/environment.yml">Github repo</a>.</p>
+<p>The model is provided with a conda virtual environment <code class="docutils literal notranslate"><span class="pre">treatment_sim</span></code>.  Details are available in the <a class="reference external" href="https://github.com/pythonhealthdatascience/stars-treat-sim">Github repo</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">simpy</span>
@@ -991,11 +994,13 @@ document.write(`
 <span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Create the distributions used by the model and initialise </span>
 <span class="sd">        the random seeds of each.</span>
-<span class="sd">        &#39;&#39;&#39;</span>
-        <span class="c1"># create random number streams</span>
-        <span class="n">rng_streams</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_number_set</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">seeds</span> <span class="o">=</span> <span class="n">rng_streams</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">999999999</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">N_STREAMS</span><span class="p">)</span>
-
+<span class="sd">        &#39;&#39;&#39;</span>       
+        <span class="c1"># MODIFICATION. Better method for producing n non-overlapping streams</span>
+        <span class="n">seed_sequence</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">SeedSequence</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_number_set</span><span class="p">)</span>
+    
+        <span class="c1"># Generate n high quality child seeds</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">seeds</span> <span class="o">=</span> <span class="n">seed_sequence</span><span class="o">.</span><span class="n">spawn</span><span class="p">(</span><span class="n">N_STREAMS</span><span class="p">)</span>
+        
         <span class="c1"># create distributions</span>
         
         <span class="c1"># Triage duration</span>
@@ -1818,67 +1823,67 @@ document.write(`
   <tbody>
     <tr>
       <th>00_arrivals</th>
-      <td>231.000000</td>
+      <td>209.000000</td>
     </tr>
     <tr>
       <th>01a_triage_wait</th>
-      <td>41.885983</td>
+      <td>16.622674</td>
     </tr>
     <tr>
       <th>01b_triage_util</th>
-      <td>0.603647</td>
+      <td>0.527512</td>
     </tr>
     <tr>
       <th>02a_registration_wait</th>
-      <td>103.039526</td>
+      <td>111.161345</td>
     </tr>
     <tr>
       <th>02b_registration_util</th>
-      <td>0.870552</td>
+      <td>0.801061</td>
     </tr>
     <tr>
       <th>03a_examination_wait</th>
-      <td>27.735811</td>
+      <td>24.927965</td>
     </tr>
     <tr>
       <th>03b_examination_util</th>
-      <td>0.872689</td>
+      <td>0.851285</td>
     </tr>
     <tr>
       <th>04a_treatment_wait(non_trauma)</th>
-      <td>158.281113</td>
+      <td>172.435861</td>
     </tr>
     <tr>
       <th>04b_treatment_util(non_trauma)</th>
-      <td>0.898896</td>
+      <td>0.845652</td>
     </tr>
     <tr>
       <th>05_total_time(non-trauma)</th>
-      <td>244.927536</td>
+      <td>248.848441</td>
     </tr>
     <tr>
       <th>06a_trauma_wait</th>
-      <td>156.036116</td>
+      <td>240.846123</td>
     </tr>
     <tr>
       <th>06b_trauma_util</th>
-      <td>0.918339</td>
+      <td>0.952202</td>
     </tr>
     <tr>
       <th>07a_treatment_wait(trauma)</th>
-      <td>115.173959</td>
+      <td>87.200272</td>
     </tr>
     <tr>
       <th>07b_treatment_util(trauma)</th>
-      <td>0.904684</td>
+      <td>0.740196</td>
     </tr>
     <tr>
       <th>08_total_time(trauma)</th>
-      <td>379.594387</td>
+      <td>422.158076</td>
     </tr>
     <tr>
       <th>09_throughput</th>
-      <td>161.000000</td>
+      <td>150.000000</td>
     </tr>
   </tbody>
 </table>
@@ -1908,8 +1913,8 @@ document.write(`
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done.
 
-CPU times: user 1.54 s, sys: 10.3 ms, total: 1.55 s
-Wall time: 4.55 s
+CPU times: user 1.47 s, sys: 15.8 ms, total: 1.49 s
+Wall time: 4.53 s
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -1970,60 +1975,60 @@ Wall time: 4.55 s
   <tbody>
     <tr>
       <th>1</th>
-      <td>218.0</td>
-      <td>28.009290</td>
-      <td>0.542454</td>
-      <td>128.490438</td>
-      <td>0.854615</td>
-      <td>28.478642</td>
-      <td>0.847430</td>
-      <td>145.414321</td>
-      <td>0.853189</td>
-      <td>247.872229</td>
-      <td>8.595360</td>
-      <td>0.368908</td>
-      <td>214.198331</td>
-      <td>0.976808</td>
-      <td>399.200311</td>
-      <td>154.0</td>
+      <td>230.0</td>
+      <td>24.280943</td>
+      <td>0.613250</td>
+      <td>103.242292</td>
+      <td>0.854504</td>
+      <td>31.089680</td>
+      <td>0.861719</td>
+      <td>152.483394</td>
+      <td>0.890904</td>
+      <td>234.759918</td>
+      <td>191.391047</td>
+      <td>0.812900</td>
+      <td>239.889716</td>
+      <td>0.929002</td>
+      <td>393.725433</td>
+      <td>157.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>188.0</td>
-      <td>3.240469</td>
-      <td>0.475390</td>
-      <td>63.307540</td>
-      <td>0.749027</td>
-      <td>16.328179</td>
-      <td>0.795921</td>
-      <td>134.202786</td>
-      <td>0.846795</td>
-      <td>178.799154</td>
-      <td>65.146932</td>
-      <td>0.838521</td>
-      <td>231.603567</td>
-      <td>0.778634</td>
-      <td>392.064964</td>
-      <td>139.0</td>
+      <td>227.0</td>
+      <td>57.120114</td>
+      <td>0.621348</td>
+      <td>90.002385</td>
+      <td>0.836685</td>
+      <td>14.688492</td>
+      <td>0.847295</td>
+      <td>120.245474</td>
+      <td>0.912127</td>
+      <td>233.882040</td>
+      <td>198.986555</td>
+      <td>0.790265</td>
+      <td>91.161308</td>
+      <td>0.699481</td>
+      <td>406.292519</td>
+      <td>156.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>233.0</td>
-      <td>13.040936</td>
-      <td>0.528681</td>
-      <td>149.636381</td>
-      <td>0.839994</td>
-      <td>18.400280</td>
-      <td>0.847310</td>
-      <td>169.503295</td>
-      <td>0.827088</td>
-      <td>260.804457</td>
-      <td>78.130137</td>
-      <td>0.816547</td>
-      <td>251.835736</td>
-      <td>1.188287</td>
-      <td>369.276920</td>
-      <td>157.0</td>
+      <td>229.0</td>
+      <td>28.659383</td>
+      <td>0.573698</td>
+      <td>112.242503</td>
+      <td>0.848514</td>
+      <td>21.374092</td>
+      <td>0.856306</td>
+      <td>94.019885</td>
+      <td>0.868888</td>
+      <td>208.361290</td>
+      <td>284.853607</td>
+      <td>0.896077</td>
+      <td>156.650713</td>
+      <td>0.699029</td>
+      <td>524.843569</td>
+      <td>161.0</td>
     </tr>
   </tbody>
 </table>
@@ -2037,22 +2042,22 @@ Wall time: 4.55 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>00_arrivals                       227.84
-01a_triage_wait                    34.63
-01b_triage_util                     0.60
-02a_registration_wait             105.67
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>00_arrivals                       227.72
+01a_triage_wait                    35.24
+01b_triage_util                     0.61
+02a_registration_wait             105.57
 02b_registration_util               0.84
-03a_examination_wait               24.79
+03a_examination_wait               25.55
 03b_examination_util                0.85
-04a_treatment_wait(non_trauma)    131.76
+04a_treatment_wait(non_trauma)    136.66
 04b_treatment_util(non_trauma)      0.87
-05_total_time(non-trauma)         230.43
-06a_trauma_wait                   135.77
-06b_trauma_util                     0.81
-07a_treatment_wait(trauma)        175.30
-07b_treatment_util(trauma)          0.85
-08_total_time(trauma)             399.90
-09_throughput                     154.66
+05_total_time(non-trauma)         234.34
+06a_trauma_wait                   147.42
+06b_trauma_util                     0.83
+07a_treatment_wait(trauma)        169.61
+07b_treatment_util(trauma)          0.81
+08_total_time(trauma)             395.08
+09_throughput                     153.60
 dtype: float64
 </pre></div>
 </div>
@@ -2072,7 +2077,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e007d5af99436c3f8b579cbb44fe7eb0d9d5b45951fb58f5361f0f88e599da8a.png" src="../../_images/e007d5af99436c3f8b579cbb44fe7eb0d9d5b45951fb58f5361f0f88e599da8a.png" />
+<img alt="../../_images/e1ceec9acb36ebfccb9e5e9feb268f312e3a9e954df1444cf1ad999844067415.png" src="../../_images/e1ceec9acb36ebfccb9e5e9feb268f312e3a9e954df1444cf1ad999844067415.png" />
 </div>
 </div>
 <p>## 10. Scenario Analysis</p>
@@ -2270,131 +2275,131 @@ Scenario analysis complete.
   <tbody>
     <tr>
       <th>00_arrivals</th>
-      <td>225.75</td>
-      <td>225.75</td>
-      <td>225.75</td>
-      <td>225.75</td>
-      <td>225.75</td>
+      <td>227.25</td>
+      <td>227.25</td>
+      <td>227.25</td>
+      <td>227.25</td>
+      <td>227.25</td>
     </tr>
     <tr>
       <th>01a_triage_wait</th>
-      <td>28.86</td>
-      <td>1.09</td>
-      <td>36.46</td>
-      <td>39.36</td>
-      <td>1.14</td>
+      <td>29.52</td>
+      <td>1.17</td>
+      <td>29.47</td>
+      <td>23.99</td>
+      <td>1.21</td>
     </tr>
     <tr>
       <th>01b_triage_util</th>
-      <td>0.57</td>
-      <td>0.30</td>
       <td>0.60</td>
-      <td>0.61</td>
+      <td>0.30</td>
+      <td>0.59</td>
+      <td>0.58</td>
       <td>0.30</td>
     </tr>
     <tr>
       <th>02a_registration_wait</th>
-      <td>113.56</td>
-      <td>138.79</td>
-      <td>106.27</td>
-      <td>108.46</td>
-      <td>140.14</td>
+      <td>101.88</td>
+      <td>128.14</td>
+      <td>101.09</td>
+      <td>109.70</td>
+      <td>125.47</td>
     </tr>
     <tr>
       <th>02b_registration_util</th>
-      <td>0.83</td>
       <td>0.84</td>
-      <td>0.83</td>
-      <td>0.83</td>
+      <td>0.85</td>
+      <td>0.84</td>
+      <td>0.84</td>
       <td>0.84</td>
     </tr>
     <tr>
       <th>03a_examination_wait</th>
-      <td>24.57</td>
-      <td>24.15</td>
-      <td>0.13</td>
-      <td>23.03</td>
-      <td>0.15</td>
+      <td>25.34</td>
+      <td>24.93</td>
+      <td>0.16</td>
+      <td>24.03</td>
+      <td>0.14</td>
     </tr>
     <tr>
       <th>03b_examination_util</th>
-      <td>0.85</td>
-      <td>0.85</td>
+      <td>0.86</td>
+      <td>0.86</td>
       <td>0.67</td>
-      <td>0.84</td>
+      <td>0.85</td>
       <td>0.67</td>
     </tr>
     <tr>
       <th>04a_treatment_wait(non_trauma)</th>
-      <td>137.72</td>
-      <td>139.98</td>
-      <td>151.82</td>
-      <td>2.26</td>
-      <td>152.09</td>
+      <td>134.19</td>
+      <td>134.80</td>
+      <td>148.81</td>
+      <td>2.10</td>
+      <td>150.61</td>
     </tr>
     <tr>
       <th>04b_treatment_util(non_trauma)</th>
-      <td>0.86</td>
-      <td>0.86</td>
-      <td>0.86</td>
-      <td>0.63</td>
-      <td>0.86</td>
+      <td>0.88</td>
+      <td>0.88</td>
+      <td>0.88</td>
+      <td>0.62</td>
+      <td>0.88</td>
     </tr>
     <tr>
       <th>05_total_time(non-trauma)</th>
-      <td>236.01</td>
-      <td>233.77</td>
-      <td>225.60</td>
-      <td>196.38</td>
-      <td>223.33</td>
+      <td>226.57</td>
+      <td>223.52</td>
+      <td>213.47</td>
+      <td>184.42</td>
+      <td>210.25</td>
     </tr>
     <tr>
       <th>06a_trauma_wait</th>
-      <td>144.46</td>
-      <td>154.00</td>
-      <td>132.94</td>
-      <td>146.09</td>
-      <td>165.43</td>
+      <td>144.23</td>
+      <td>163.29</td>
+      <td>153.04</td>
+      <td>151.20</td>
+      <td>189.95</td>
     </tr>
     <tr>
       <th>06b_trauma_util</th>
+      <td>0.85</td>
+      <td>0.85</td>
+      <td>0.89</td>
       <td>0.80</td>
-      <td>0.83</td>
-      <td>0.82</td>
-      <td>0.82</td>
-      <td>0.80</td>
+      <td>0.88</td>
     </tr>
     <tr>
       <th>07a_treatment_wait(trauma)</th>
-      <td>168.27</td>
-      <td>209.12</td>
-      <td>195.16</td>
-      <td>150.37</td>
-      <td>193.69</td>
+      <td>176.13</td>
+      <td>208.33</td>
+      <td>192.61</td>
+      <td>165.71</td>
+      <td>191.00</td>
     </tr>
     <tr>
       <th>07b_treatment_util(trauma)</th>
-      <td>0.79</td>
-      <td>0.81</td>
-      <td>0.83</td>
-      <td>0.81</td>
+      <td>0.84</td>
       <td>0.86</td>
+      <td>0.80</td>
+      <td>0.84</td>
+      <td>0.85</td>
     </tr>
     <tr>
       <th>08_total_time(trauma)</th>
-      <td>390.68</td>
-      <td>402.95</td>
-      <td>422.40</td>
-      <td>403.82</td>
-      <td>400.37</td>
+      <td>393.36</td>
+      <td>389.83</td>
+      <td>400.76</td>
+      <td>383.26</td>
+      <td>408.64</td>
     </tr>
     <tr>
       <th>09_throughput</th>
-      <td>152.10</td>
-      <td>152.00</td>
-      <td>157.30</td>
-      <td>184.65</td>
-      <td>155.85</td>
+      <td>156.25</td>
+      <td>157.50</td>
+      <td>159.85</td>
+      <td>187.85</td>
+      <td>159.80</td>
     </tr>
   </tbody>
 </table>
@@ -2456,56 +2461,56 @@ Scenario analysis complete.
     <tr>
       <th>0</th>
       <td>Triage</td>
-      <td>28.86</td>
-      <td>1.09</td>
-      <td>36.46</td>
-      <td>39.36</td>
-      <td>1.14</td>
+      <td>29.52</td>
+      <td>1.17</td>
+      <td>29.47</td>
+      <td>23.99</td>
+      <td>1.21</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Registation</td>
-      <td>113.56</td>
-      <td>138.79</td>
-      <td>106.27</td>
-      <td>108.46</td>
-      <td>140.14</td>
+      <td>101.88</td>
+      <td>128.14</td>
+      <td>101.09</td>
+      <td>109.70</td>
+      <td>125.47</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Examination</td>
-      <td>24.57</td>
-      <td>24.15</td>
-      <td>0.13</td>
-      <td>23.03</td>
-      <td>0.15</td>
+      <td>25.34</td>
+      <td>24.93</td>
+      <td>0.16</td>
+      <td>24.03</td>
+      <td>0.14</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Non-trauma treatment</td>
-      <td>137.72</td>
-      <td>139.98</td>
-      <td>151.82</td>
-      <td>2.26</td>
-      <td>152.09</td>
+      <td>134.19</td>
+      <td>134.80</td>
+      <td>148.81</td>
+      <td>2.10</td>
+      <td>150.61</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Trauma stabilisation</td>
-      <td>144.46</td>
-      <td>154.00</td>
-      <td>132.94</td>
-      <td>146.09</td>
-      <td>165.43</td>
+      <td>144.23</td>
+      <td>163.29</td>
+      <td>153.04</td>
+      <td>151.20</td>
+      <td>189.95</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Trauma treatment</td>
-      <td>168.27</td>
-      <td>209.12</td>
-      <td>195.16</td>
-      <td>150.37</td>
-      <td>193.69</td>
+      <td>176.13</td>
+      <td>208.33</td>
+      <td>192.61</td>
+      <td>165.71</td>
+      <td>191.00</td>
     </tr>
   </tbody>
 </table>
@@ -2541,12 +2546,12 @@ Scenario analysis complete.
 \toprule
 Mean waiting time (mins) &amp;   base &amp;  triage+1 &amp;  exam+1 &amp;  treat+1 &amp;  triage+exam \\
 \midrule
-                  Triage &amp;  28.86 &amp;      1.09 &amp;   36.46 &amp;    39.36 &amp;         1.14 \\
-             Registation &amp; 113.56 &amp;    138.79 &amp;  106.27 &amp;   108.46 &amp;       140.14 \\
-             Examination &amp;  24.57 &amp;     24.15 &amp;    0.13 &amp;    23.03 &amp;         0.15 \\
-    Non-trauma treatment &amp; 137.72 &amp;    139.98 &amp;  151.82 &amp;     2.26 &amp;       152.09 \\
-    Trauma stabilisation &amp; 144.46 &amp;    154.00 &amp;  132.94 &amp;   146.09 &amp;       165.43 \\
-        Trauma treatment &amp; 168.27 &amp;    209.12 &amp;  195.16 &amp;   150.37 &amp;       193.69 \\
+                  Triage &amp;  29.52 &amp;      1.17 &amp;   29.47 &amp;    23.99 &amp;         1.21 \\
+             Registation &amp; 101.88 &amp;    128.14 &amp;  101.09 &amp;   109.70 &amp;       125.47 \\
+             Examination &amp;  25.34 &amp;     24.93 &amp;    0.16 &amp;    24.03 &amp;         0.14 \\
+    Non-trauma treatment &amp; 134.19 &amp;    134.80 &amp;  148.81 &amp;     2.10 &amp;       150.61 \\
+    Trauma stabilisation &amp; 144.23 &amp;    163.29 &amp;  153.04 &amp;   151.20 &amp;       189.95 \\
+        Trauma treatment &amp; 176.13 &amp;    208.33 &amp;  192.61 &amp;   165.71 &amp;       191.00 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -2588,7 +2593,7 @@ Mean waiting time (mins) &amp;   base &amp;  triage+1 &amp;  exam+1 &amp;  treat
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="03a_summary.html"
@@ -2669,6 +2674,7 @@ By Thomas Monks
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -2695,8 +2701,8 @@ By Thomas Monks
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>
