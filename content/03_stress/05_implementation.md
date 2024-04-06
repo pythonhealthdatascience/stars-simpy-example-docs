@@ -22,7 +22,7 @@ A [conda virtual environment](https://github.com/TomMonks/treatment-centre-sim/b
 
 ## 5.2 Random sampling 
 
-All sampling uses [`numpy.random.Generator`](https://numpy.org/doc/stable/reference/random/generator.html).  A `numpy` generator object implements the Permuted Congruential Generator 64-bit (PCG64; period = $2^{128}$; maximum number of streams = $2^63$).
+All sampling uses [`numpy.random.Generator`](https://numpy.org/doc/stable/reference/random/generator.html).  A `numpy` generator object implements the Permuted Congruential Generator 64-bit (PCG64; period = $2^{128}$; maximum number of streams = $2^{63}$).
 
 Repeatable experiments and common random number streams are used in the model.  Non overlapping streams are creating using a `numpy.random.SeedSequence`. One seed - the replication number - is passed to a `SeedSequence` and $n$ child seeds are spawned that are then used to create the $n$ streams. The seeds spawned by `SeedSequence` ensure that these streams are "very likely" non-overlapping.
 
