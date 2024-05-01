@@ -1,19 +1,21 @@
 # Citation
 
-Please cite this online book using:
+If you use or adapt the materials in this book please cite the artifacts as follows:
+
+> Monks, T., & Harper, A. (2023). Towards Sharing Tools and Artifacts for Reusable Simulation: example enhanced documentation for a `simpy` model. (v1.1.0). Zenodo. https://doi.org/10.5281/zenodo.10054063
 
 ```bibtex
-@software{monks_thomas_2022_6772475,
+@software{stars_example_docs,
   author       = {Monks, Thomas and
-                  Harper, Alison and
-                  Taylor, J.E, Simon and
-                  Anagnostou, Anastasia},
-  title        = {TomMonks/treatment-centre-sim: v0.4.0},
-  month        = jun,
-  year         = 2022,
+                  Harper, Alison},
+  title        = {{Towards Sharing Tools and Artifacts for Reusable 
+                   Simulation: example enhanced documentation for a
+                   `simpy` model.}},
+  month        = oct,
+  year         = 2023,
   publisher    = {Zenodo},
-  version      = {v0.4.0},
-  doi          = {10.5281/zenodo.6772475},
-  url          = {https://doi.org/10.5281/zenodo.6772475}
+  version      = {v1.1.0},
+  doi	       = {10.5281/zenodo.10054063},
+  url	       = {https://doi.org/10.5281/zenodo.10054063},
 }
 ```
