@@ -1,5 +1,5 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/pythonhealthdatascience/stars-simpy-example-docs/HEAD)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10054063.svg)](https://doi.org/10.5281/zenodo.10054063)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11098527.svg)](https://doi.org/10.5281/zenodo.11098527)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/release/python-360+/)
 [![Read the Docs](https://readthedocs.org/projects/pip/badge/?version=latest)](https://pythonhealthdatascience.github.io/stars-simpy-example-docs)
@@ -28,7 +28,7 @@ The materials and methods in this repository support work towards developing the
 
 ## Citation
 
-> Monks, T., & Harper, A. (2023). Towards Sharing Tools and Artifacts for Reusable Simulation: example enhanced documentation for a `simpy` model. (v1.1.0). Zenodo. https://doi.org/10.5281/zenodo.10054063
+> Monks, T., & Harper, A. (2024). Towards Sharing Tools and Artifacts for Reusable Simulation: example enhanced documentation for a `simpy` model. (v1.1.1). Zenodo. https://doi.org/10.5281/zenodo.11098527
 
 ```bibtex
 @software{stars_example_docs,
@@ -37,12 +37,12 @@ The materials and methods in this repository support work towards developing the
   title        = {{Towards Sharing Tools and Artifacts for Reusable 
                    Simulation: example enhanced documentation for a
                    `simpy` model.}},
-  month        = oct,
-  year         = 2023,
+  month        = may,
+  year         = 2024,
   publisher    = {Zenodo},
-  version      = {v1.1.0},
-  doi	       = {10.5281/zenodo.10054063},
-  url	       = {https://doi.org/10.5281/zenodo.10054063},
+  version      = {v1.1.1},
+  doi          = {10.5281/zenodo.11098527},
+  url          = {https://doi.org/10.5281/zenodo.11098527}
 }
 ```
 
@@ -52,7 +52,7 @@ This code is part of independent research supported by the National Institute fo
 
 ## Case study model
 
-**This example is based on exercise 13 from Nelson (2013) page 170.**
+**This example is based on exercise 13 from Nelson (2013) page 170.**  Please also credit this work is you use our materials.
 
 > *Nelson. B.L. (2013). [Foundations and methods of stochastic simulation](https://www.amazon.co.uk/Foundations-Methods-Stochastic-Simulation-International/dp/1461461596/ref=sr_1_1?dchild=1&keywords=foundations+and+methods+of+stochastic+simulation&qid=1617050801&sr=8-1). Springer.* 
 
