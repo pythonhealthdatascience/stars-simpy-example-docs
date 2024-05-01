@@ -79,7 +79,7 @@ Alternatively you may wish to create the website on your local machine.
 Either clone the repository using git or click on the green "code" button and select "Download Zip".
 
 ```bash
-git clone https://github.com/pythonhealthdatascience/stars-simpy-examplar-docs
+git clone https://github.com/pythonhealthdatascience/stars-simpy-example-docs
 ```
 
 ### Installing dependencies
