@@ -13,4 +13,3 @@ dependencies:
   - simpy=4.0.1
   - pip:
     - jupyter-book==0.15.1
-
