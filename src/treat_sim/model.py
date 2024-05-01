@@ -300,11 +300,13 @@ class Scenario:
         '''
         Create the distributions used by the model and initialise 
         the random seeds of each.
-        '''
-        # create random number streams
-        rng_streams = np.random.default_rng(self.random_number_set)
-        self.seeds = rng_streams.integers(0, 999999999, size=N_STREAMS)
-
+        '''       
+        # MODIFICATION. Better method for producing n non-overlapping streams
+        seed_sequence = np.random.SeedSequence(self.random_number_set)
+    
+        # Generate n high quality child seeds
+        self.seeds = seed_sequence.spawn(N_STREAMS)
+        
         # create distributions
         
         # Triage duration
@@ -332,7 +334,7 @@ class Scenario:
         
         # treatment of trauma patients
         self.treat_dist = Lognormal(self.trauma_treat_mean, 
-                                    np.sqrt(self.non_trauma_treat_var),
+                                    np.sqrt(self.trauma_treat_var),
                                     random_seed=self.seeds[5])
         
         # probability of non-trauma patient requiring treatment
@@ -430,7 +432,7 @@ class TraumaPathway:
                   f'{self.env.now:.3f}')
         
             # sample triage duration.
-            self.triage_duration = self.args.triage_dist.sample()
+            self.triage_duration = args.triage_dist.sample()
             yield self.env.timeout(self.triage_duration)
             self.triage_complete()
             
@@ -445,7 +447,7 @@ class TraumaPathway:
             self.wait_trauma = self.env.now - start_wait
             
             # sample stablisation duration.
-            self.trauma_duration = self.args.trauma_dist.sample()
+            self.trauma_duration = args.trauma_dist.sample()
             yield self.env.timeout(self.trauma_duration)
             
             self.trauma_complete()
@@ -463,7 +465,7 @@ class TraumaPathway:
                   f'{self.env.now:.3f}')
             
             # sample treatment duration.
-            self.treat_duration = self.args.trauma_dist.sample()
+            self.treat_duration = args.treat_dist.sample()
             yield self.env.timeout(self.treat_duration)
             
             self.treatment_complete()
