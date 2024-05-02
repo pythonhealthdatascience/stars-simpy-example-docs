@@ -1131,7 +1131,7 @@ document.write(`
                   <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
         
             <span class="c1"># sample triage duration.</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">triage_duration</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">triage_dist</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">triage_duration</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">triage_dist</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
             <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">triage_duration</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">triage_complete</span><span class="p">()</span>
             
@@ -1146,7 +1146,7 @@ document.write(`
             <span class="bp">self</span><span class="o">.</span><span class="n">wait_trauma</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span> <span class="o">-</span> <span class="n">start_wait</span>
             
             <span class="c1"># sample stablisation duration.</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">trauma_duration</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">trauma_dist</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">trauma_duration</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">trauma_dist</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
             <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trauma_duration</span><span class="p">)</span>
             
             <span class="bp">self</span><span class="o">.</span><span class="n">trauma_complete</span><span class="p">()</span>
@@ -1164,7 +1164,7 @@ document.write(`
                   <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
             
             <span class="c1"># sample treatment duration.</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">treat_duration</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">treat_dist</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">treat_duration</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">treat_dist</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
             <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">treat_duration</span><span class="p">)</span>
             
             <span class="bp">self</span><span class="o">.</span><span class="n">treatment_complete</span><span class="p">()</span>
@@ -1268,7 +1268,7 @@ document.write(`
                   <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
             
             <span class="c1"># sample triage duration.</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">triage_duration</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">triage_dist</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">triage_duration</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">triage_dist</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
             <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">triage_duration</span><span class="p">)</span>
             
             <span class="n">trace</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;triage </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">identifier</span><span class="si">}</span><span class="s1"> complete </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">; &#39;</span>
@@ -1287,7 +1287,7 @@ document.write(`
                   <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
             
             <span class="c1"># sample registration duration.</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">reg_duration</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">reg_dist</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">reg_duration</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">reg_dist</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
             <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reg_duration</span><span class="p">)</span>
             
             <span class="n">trace</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;patient </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">identifier</span><span class="si">}</span><span class="s1"> registered at&#39;</span>
@@ -1307,7 +1307,7 @@ document.write(`
                   <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
             
             <span class="c1"># sample examination duration.</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">exam_duration</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">exam_dist</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">exam_duration</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">exam_dist</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
             <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">exam_duration</span><span class="p">)</span>
             
             <span class="n">trace</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;patient </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">identifier</span><span class="si">}</span><span class="s1"> examination complete &#39;</span> 
@@ -1332,7 +1332,7 @@ document.write(`
                       <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
                 <span class="c1"># sample treatment duration.</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">treat_duration</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">nt_treat_dist</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">treat_duration</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">nt_treat_dist</span><span class="o">.</span><span class="n">sample</span><span class="p">()</span>
                 <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">timeout</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">treat_duration</span><span class="p">)</span>
 
                 <span class="n">trace</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;patient </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">identifier</span><span class="si">}</span><span class="s1"> treatment complete &#39;</span>
@@ -1913,8 +1913,8 @@ document.write(`
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done.
 
-CPU times: user 3.11 s, sys: 36.7 ms, total: 3.15 s
-Wall time: 4.68 s
+CPU times: user 1.46 s, sys: 26.3 ms, total: 1.49 s
+Wall time: 4.72 s
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -2283,42 +2283,42 @@ Scenario analysis complete.
     </tr>
     <tr>
       <th>01a_triage_wait</th>
-      <td>29.52</td>
-      <td>1.17</td>
-      <td>29.47</td>
-      <td>23.99</td>
-      <td>1.21</td>
+      <td>32.56</td>
+      <td>1.26</td>
+      <td>32.56</td>
+      <td>32.56</td>
+      <td>1.26</td>
     </tr>
     <tr>
       <th>01b_triage_util</th>
-      <td>0.60</td>
-      <td>0.30</td>
-      <td>0.59</td>
-      <td>0.58</td>
-      <td>0.30</td>
+      <td>0.61</td>
+      <td>0.31</td>
+      <td>0.61</td>
+      <td>0.61</td>
+      <td>0.31</td>
     </tr>
     <tr>
       <th>02a_registration_wait</th>
-      <td>101.88</td>
-      <td>128.14</td>
-      <td>101.09</td>
-      <td>109.70</td>
-      <td>125.47</td>
+      <td>104.69</td>
+      <td>131.82</td>
+      <td>104.69</td>
+      <td>104.69</td>
+      <td>131.82</td>
     </tr>
     <tr>
       <th>02b_registration_util</th>
-      <td>0.84</td>
       <td>0.85</td>
-      <td>0.84</td>
-      <td>0.84</td>
-      <td>0.84</td>
+      <td>0.85</td>
+      <td>0.85</td>
+      <td>0.85</td>
+      <td>0.85</td>
     </tr>
     <tr>
       <th>03a_examination_wait</th>
-      <td>25.34</td>
-      <td>24.93</td>
-      <td>0.16</td>
-      <td>24.03</td>
+      <td>23.36</td>
+      <td>24.44</td>
+      <td>0.14</td>
+      <td>23.36</td>
       <td>0.14</td>
     </tr>
     <tr>
@@ -2326,16 +2326,16 @@ Scenario analysis complete.
       <td>0.86</td>
       <td>0.86</td>
       <td>0.67</td>
-      <td>0.85</td>
+      <td>0.86</td>
       <td>0.67</td>
     </tr>
     <tr>
       <th>04a_treatment_wait(non_trauma)</th>
-      <td>134.19</td>
-      <td>134.80</td>
-      <td>148.81</td>
-      <td>2.10</td>
-      <td>150.61</td>
+      <td>130.73</td>
+      <td>133.09</td>
+      <td>144.50</td>
+      <td>2.15</td>
+      <td>147.81</td>
     </tr>
     <tr>
       <th>04b_treatment_util(non_trauma)</th>
@@ -2347,59 +2347,59 @@ Scenario analysis complete.
     </tr>
     <tr>
       <th>05_total_time(non-trauma)</th>
-      <td>226.57</td>
-      <td>223.52</td>
-      <td>213.47</td>
-      <td>184.42</td>
-      <td>210.25</td>
+      <td>229.04</td>
+      <td>226.38</td>
+      <td>218.29</td>
+      <td>187.98</td>
+      <td>215.06</td>
     </tr>
     <tr>
       <th>06a_trauma_wait</th>
-      <td>171.44</td>
-      <td>182.96</td>
-      <td>139.42</td>
-      <td>166.51</td>
-      <td>178.34</td>
+      <td>166.98</td>
+      <td>189.67</td>
+      <td>166.98</td>
+      <td>166.98</td>
+      <td>189.67</td>
     </tr>
     <tr>
       <th>06b_trauma_util</th>
-      <td>0.88</td>
-      <td>0.88</td>
-      <td>0.83</td>
-      <td>0.87</td>
+      <td>0.84</td>
+      <td>0.86</td>
+      <td>0.84</td>
+      <td>0.84</td>
       <td>0.86</td>
     </tr>
     <tr>
       <th>07a_treatment_wait(trauma)</th>
-      <td>20.38</td>
-      <td>22.61</td>
-      <td>19.24</td>
-      <td>16.89</td>
-      <td>19.46</td>
+      <td>14.39</td>
+      <td>14.77</td>
+      <td>14.39</td>
+      <td>14.39</td>
+      <td>14.77</td>
     </tr>
     <tr>
       <th>07b_treatment_util(trauma)</th>
       <td>0.52</td>
       <td>0.52</td>
       <td>0.52</td>
-      <td>0.51</td>
+      <td>0.52</td>
       <td>0.52</td>
     </tr>
     <tr>
       <th>08_total_time(trauma)</th>
-      <td>316.94</td>
-      <td>298.88</td>
-      <td>271.56</td>
-      <td>297.58</td>
-      <td>288.86</td>
+      <td>306.46</td>
+      <td>298.22</td>
+      <td>306.46</td>
+      <td>306.46</td>
+      <td>298.22</td>
     </tr>
     <tr>
       <th>09_throughput</th>
-      <td>166.15</td>
-      <td>167.45</td>
-      <td>169.15</td>
+      <td>165.85</td>
+      <td>166.65</td>
+      <td>169.10</td>
       <td>196.85</td>
-      <td>170.40</td>
+      <td>169.85</td>
     </tr>
   </tbody>
 </table>
@@ -2461,56 +2461,56 @@ Scenario analysis complete.
     <tr>
       <th>0</th>
       <td>Triage</td>
-      <td>29.52</td>
-      <td>1.17</td>
-      <td>29.47</td>
-      <td>23.99</td>
-      <td>1.21</td>
+      <td>32.56</td>
+      <td>1.26</td>
+      <td>32.56</td>
+      <td>32.56</td>
+      <td>1.26</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Registation</td>
-      <td>101.88</td>
-      <td>128.14</td>
-      <td>101.09</td>
-      <td>109.70</td>
-      <td>125.47</td>
+      <td>104.69</td>
+      <td>131.82</td>
+      <td>104.69</td>
+      <td>104.69</td>
+      <td>131.82</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Examination</td>
-      <td>25.34</td>
-      <td>24.93</td>
-      <td>0.16</td>
-      <td>24.03</td>
+      <td>23.36</td>
+      <td>24.44</td>
+      <td>0.14</td>
+      <td>23.36</td>
       <td>0.14</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Non-trauma treatment</td>
-      <td>134.19</td>
-      <td>134.80</td>
-      <td>148.81</td>
-      <td>2.10</td>
-      <td>150.61</td>
+      <td>130.73</td>
+      <td>133.09</td>
+      <td>144.50</td>
+      <td>2.15</td>
+      <td>147.81</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Trauma stabilisation</td>
-      <td>171.44</td>
-      <td>182.96</td>
-      <td>139.42</td>
-      <td>166.51</td>
-      <td>178.34</td>
+      <td>166.98</td>
+      <td>189.67</td>
+      <td>166.98</td>
+      <td>166.98</td>
+      <td>189.67</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Trauma treatment</td>
-      <td>20.38</td>
-      <td>22.61</td>
-      <td>19.24</td>
-      <td>16.89</td>
-      <td>19.46</td>
+      <td>14.39</td>
+      <td>14.77</td>
+      <td>14.39</td>
+      <td>14.39</td>
+      <td>14.77</td>
     </tr>
   </tbody>
 </table>
@@ -2546,12 +2546,12 @@ Scenario analysis complete.
 \toprule
 Mean waiting time (mins) &amp;   base &amp;  triage+1 &amp;  exam+1 &amp;  treat+1 &amp;  triage+exam \\
 \midrule
-                  Triage &amp;  29.52 &amp;      1.17 &amp;   29.47 &amp;    23.99 &amp;         1.21 \\
-             Registation &amp; 101.88 &amp;    128.14 &amp;  101.09 &amp;   109.70 &amp;       125.47 \\
-             Examination &amp;  25.34 &amp;     24.93 &amp;    0.16 &amp;    24.03 &amp;         0.14 \\
-    Non-trauma treatment &amp; 134.19 &amp;    134.80 &amp;  148.81 &amp;     2.10 &amp;       150.61 \\
-    Trauma stabilisation &amp; 171.44 &amp;    182.96 &amp;  139.42 &amp;   166.51 &amp;       178.34 \\
-        Trauma treatment &amp;  20.38 &amp;     22.61 &amp;   19.24 &amp;    16.89 &amp;        19.46 \\
+                  Triage &amp;  32.56 &amp;      1.26 &amp;   32.56 &amp;    32.56 &amp;         1.26 \\
+             Registation &amp; 104.69 &amp;    131.82 &amp;  104.69 &amp;   104.69 &amp;       131.82 \\
+             Examination &amp;  23.36 &amp;     24.44 &amp;    0.14 &amp;    23.36 &amp;         0.14 \\
+    Non-trauma treatment &amp; 130.73 &amp;    133.09 &amp;  144.50 &amp;     2.15 &amp;       147.81 \\
+    Trauma stabilisation &amp; 166.98 &amp;    189.67 &amp;  166.98 &amp;   166.98 &amp;       189.67 \\
+        Trauma treatment &amp;  14.39 &amp;     14.77 &amp;   14.39 &amp;    14.39 &amp;        14.77 \\
 \bottomrule
 \end{tabular}
 \end{table}
