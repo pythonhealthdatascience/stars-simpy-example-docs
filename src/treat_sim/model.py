@@ -432,7 +432,7 @@ class TraumaPathway:
                   f'{self.env.now:.3f}')
         
             # sample triage duration.
-            self.triage_duration = args.triage_dist.sample()
+            self.triage_duration = self.args.triage_dist.sample()
             yield self.env.timeout(self.triage_duration)
             self.triage_complete()
             
@@ -447,7 +447,7 @@ class TraumaPathway:
             self.wait_trauma = self.env.now - start_wait
             
             # sample stablisation duration.
-            self.trauma_duration = args.trauma_dist.sample()
+            self.trauma_duration = self.args.trauma_dist.sample()
             yield self.env.timeout(self.trauma_duration)
             
             self.trauma_complete()
@@ -465,7 +465,7 @@ class TraumaPathway:
                   f'{self.env.now:.3f}')
             
             # sample treatment duration.
-            self.treat_duration = args.treat_dist.sample()
+            self.treat_duration = self.args.treat_dist.sample()
             yield self.env.timeout(self.treat_duration)
             
             self.treatment_complete()

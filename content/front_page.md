@@ -1,6 +1,6 @@
 # Preface
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11098527.svg)](https://doi.org/10.5281/zenodo.11098527)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11102373.svg)](https://doi.org/10.5281/zenodo.11102373)
 
 This book contains example enhanced documentation and open working for a discrete-event simulation model. The model is a based on the treatment centre example in Nelson [1]. The model is implemented in `python` and `simpy`.
 

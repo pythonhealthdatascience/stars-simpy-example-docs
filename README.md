@@ -1,5 +1,5 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/pythonhealthdatascience/stars-simpy-example-docs/HEAD)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11098527.svg)](https://doi.org/10.5281/zenodo.11098527)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11102373.svg)](https://doi.org/10.5281/zenodo.11102373)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/release/python-360+/)
 [![Read the Docs](https://readthedocs.org/projects/pip/badge/?version=latest)](https://pythonhealthdatascience.github.io/stars-simpy-example-docs)
@@ -28,7 +28,7 @@ The materials and methods in this repository support work towards developing the
 
 ## Citation
 
-> Monks, T., & Harper, A. (2024). Towards Sharing Tools and Artifacts for Reusable Simulation: example enhanced documentation for a `simpy` model. (v1.1.1). Zenodo. https://doi.org/10.5281/zenodo.11098527
+> Monks, T., & Harper, A. (2024). Towards Sharing Tools and Artifacts for Reusable Simulation: example enhanced documentation for a `simpy` model. (v1.1.2). Zenodo. https://doi.org/10.5281/zenodo.11102373
 
 ```bibtex
 @software{stars_example_docs,
@@ -40,9 +40,9 @@ The materials and methods in this repository support work towards developing the
   month        = may,
   year         = 2024,
   publisher    = {Zenodo},
-  version      = {v1.1.1},
-  doi          = {10.5281/zenodo.11098527},
-  url          = {https://doi.org/10.5281/zenodo.11098527}
+  version      = {v1.1.2},
+  doi          = {10.5281/zenodo.11102373},
+  url          = {https://doi.org/10.5281/zenodo.11102373}
 }
 ```
 
