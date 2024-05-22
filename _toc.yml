@@ -16,6 +16,7 @@ parts:
   - file: content/02_model_code/03_instr
   - file: content/02_model_code/03a_summary
   - file: content/02_model_code/04_model
+  - file: content/02_model_code/05_testing
 - caption: STRESS Reporting
   chapters:
   - file: content/03_stress/01_objectives
