@@ -2,14 +2,15 @@ name: stars_docs
 channels:
   - conda-forge
 dependencies:
+  - ipytest=0.14.2
   - joblib=0.15.1
+  - jupyter-book=1.0.0
   - jupyterlab=3.0.9
-  - matplotlib=3.3.4
-  - numpy=1.19.2
-  - pandas=1.2.3
-  - pip=21.0.1
-  - python=3.8.12
-  - scipy=1.6.1
-  - simpy=4.0.1
-  - pip:
-    - jupyter-book==0.15.1
+  - matplotlib=3.8.4
+  - numpy=1.26.4
+  - pandas=2.2.2
+  - pip=24.0
+  - pytest=8.2.1
+  - python=3.10.14
+  - scipy=1.13.0
+  - simpy=4.1.1
