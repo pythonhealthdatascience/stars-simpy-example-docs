@@ -1,0 +1,1890 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Model testing &#8212; Treatment centre simulation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/02_model_code/05_testing';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1. Objectives" href="../03_stress/01_objectives.html" />
+    <link rel="prev" title="SimPy: Treatment Centre" href="04_model.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../front_page.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Treatment centre simulation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../front_page.html">
+                    Preface
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01_introduction/01_overview.html">Book overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_introduction/02_license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_introduction/03_citation.html">Citation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_introduction/04_openworking.html">Open working statement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_introduction/05_contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_introduction/06_plain_english.html">Plain English summary</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Model code</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_problem.html">Problem description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_simpy.html">Simulaton Software Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_instr.html">Steps to reproduce results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03a_summary.html">Model technical summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_model.html">SimPy: Treatment Centre</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Model testing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">STRESS Reporting</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../03_stress/01_objectives.html">1. Objectives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_stress/02_logic.html">2. Model logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_stress/03_data.html">3. Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_stress/04_experimentation.html">4. Experimentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_stress/05_implementation.html">5. Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_stress/06_code_access.html">6. Code access</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/TomMonks/treatment-centre-sim/main?urlpath=lab/tree/content/02_model_code/05_testing.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/TomMonks/treatment-centre-sim" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/TomMonks/treatment-centre-sim/issues/new?title=Issue%20on%20page%20%2Fcontent/02_model_code/05_testing.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/content/02_model_code/05_testing.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Model testing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-code-imports">1. Model Code Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">2. Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests">3. Tests</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functionality-tests">3.1 Functionality tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-value-tests">3.2. Extreme value tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deterministic-activities">3.3 Deterministic activities</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-used-to-overwrite-scenario-in-deterministic-tests">Functions used to overwrite <code class="docutils literal notranslate"><span class="pre">Scenario</span></code> in deterministic tests.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-all-automated-tests">4. Run all automated tests</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="model-testing">
+<h1>Model testing<a class="headerlink" href="#model-testing" title="Link to this heading">#</a></h1>
+<p>This notebook provides a set of tests to run against <code class="docutils literal notranslate"><span class="pre">treat_sim</span></code>.  These tests are either pass or fail and no interpretation is needed. A summary of test results is provided at the end of the notebook.</p>
+<blockquote>
+<div><p>This notebook is a work in progress and more tests will be added in due course as we refine and/or expand <code class="docutils literal notranslate"><span class="pre">treat_sim</span></code> functionality.</p>
+</div></blockquote>
+<p>We have broken the testing of <code class="docutils literal notranslate"><span class="pre">treat_sim</span></code> into the following sections</p>
+<ul class="simple">
+<li><p><strong>Functionality tests:</strong>.  These provide tests of the overall setup and features of using the model including the ability to do repeatable single and multiple replications.</p></li>
+<li><p><strong>Extreme value tests:</strong> The model is configured with extreme values for its parameters. For example, limiting arrivals, blocking routes, infinite capacity.  This helps test that the logic of the model is implemented correctly.</p></li>
+<li><p><strong>Deterministic run tests:</strong> Test if the total time in the pathway output behaves as expected if activites are converted to a deterministic values and capacity is removed.</p></li>
+</ul>
+<p>These tests are only valid for a specific version of <code class="docutils literal notranslate"><span class="pre">treat_sim</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## these tests are applied to treat_sim version =</span>
+<span class="kn">import</span> <span class="nn">treat_sim</span>
+<span class="n">treat_sim</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;2.0.0&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="model-code-imports">
+<h2>1. Model Code Imports<a class="headerlink" href="#model-code-imports" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">treat_sim.model</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Scenario</span><span class="p">,</span> 
+    <span class="n">TreatmentCentreModel</span><span class="p">,</span>
+    <span class="n">single_run</span><span class="p">,</span> 
+    <span class="n">multiple_replications</span><span class="p">,</span>
+    <span class="n">SimulationSummary</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="imports">
+<h2>2. Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">statistics</span>
+<span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">import</span> <span class="nn">ipytest</span>
+
+<span class="c1"># types library is used to overwrite methods from treat_sim</span>
+<span class="kn">import</span> <span class="nn">types</span>
+
+<span class="c1"># sim_tools fixed dist is used for deterministic runs</span>
+<span class="kn">from</span> <span class="nn">sim_tools.distributions</span> <span class="kn">import</span> <span class="n">FixedDistribution</span>
+
+<span class="n">ipytest</span><span class="o">.</span><span class="n">autoconfig</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tests">
+<h2>3. Tests<a class="headerlink" href="#tests" title="Link to this heading">#</a></h2>
+<section id="functionality-tests">
+<h3>3.1 Functionality tests<a class="headerlink" href="#functionality-tests" title="Link to this heading">#</a></h3>
+<p>Here we test that various modes of running the model work correctly.  These include</p>
+<ul class="simple">
+<li><p>single run mode</p></li>
+<li><p>multiple replications mode</p></li>
+<li><p>repeatable results using random number sets.</p></li>
+<li><p>results collection period</p></li>
+<li><p>TODO: the number of patient arrivals</p></li>
+<li><p>TODO: the number of patient arrivals given an alternative time dependent profile.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_single_run_results_length_and_type</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Test a single_run of the model.</span>
+<span class="sd">    </span>
+<span class="sd">    The single_run function should return a pandas.DataFrame</span>
+<span class="sd">    containing 16 columns and a single row.</span>
+<span class="sd">    </span>
+<span class="sd">     0   00_arrivals                    </span>
+<span class="sd">     1   01a_triage_wait                 </span>
+<span class="sd">     2   01b_triage_util               </span>
+<span class="sd">     3   02a_registration_wait         </span>
+<span class="sd">     4   02b_registration_util        </span>
+<span class="sd">     5   03a_examination_wait          </span>
+<span class="sd">     6   03b_examination_util          </span>
+<span class="sd">     7   04a_treatment_wait(non_trauma)  </span>
+<span class="sd">     8   04b_treatment_util(non_trauma)  </span>
+<span class="sd">     9   05_total_time(non-trauma)       </span>
+<span class="sd">     10  06a_trauma_wait               </span>
+<span class="sd">     11  06b_trauma_util                 </span>
+<span class="sd">     12  07a_treatment_wait(trauma)      </span>
+<span class="sd">     13  07b_treatment_util(trauma)      </span>
+<span class="sd">     14  08_total_time(trauma)           </span>
+<span class="sd">     15  09_throughput                   </span>
+
+<span class="sd">    Expected result: </span>
+<span class="sd">    ---------------</span>
+<span class="sd">        len(run_results) == 16 and isinstance(run_results, pd.Dataframe)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    -------</span>
+<span class="sd">    bool: does the model pass the test.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">EXPECTED_LENGTH</span> <span class="o">=</span> <span class="mi">16</span>
+
+    <span class="c1"># a default experiment</span>
+    <span class="n">default_experiment_params</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">()</span>
+
+    <span class="c1"># run the model in single run model</span>
+    <span class="n">run_results</span> <span class="o">=</span> <span class="n">single_run</span><span class="p">(</span><span class="n">default_experiment_params</span><span class="p">,</span> <span class="n">random_no_set</span><span class="o">=</span><span class="mi">41</span><span class="p">)</span>
+
+    <span class="c1"># test</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">run_results</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">==</span> <span class="n">EXPECTED_LENGTH</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">run_results</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s1">&#39;n_reps&#39;</span><span class="p">,</span> <span class="p">[</span>
+                          <span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">23</span><span class="p">)</span>
+<span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_multiple_replications_results_length_and_type</span><span class="p">(</span><span class="n">n_reps</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Test running the model in multiple replications mode</span>
+<span class="sd">    </span>
+<span class="sd">    The multiple function should return a pandas.DataFrame</span>
+<span class="sd">    containing 16 columns and n_reps rows. Its shape is (n_reps, 16)</span>
+<span class="sd">    </span>
+<span class="sd">     0   00_arrivals                    </span>
+<span class="sd">     1   01a_triage_wait                 </span>
+<span class="sd">     2   01b_triage_util               </span>
+<span class="sd">     3   02a_registration_wait         </span>
+<span class="sd">     4   02b_registration_util        </span>
+<span class="sd">     5   03a_examination_wait          </span>
+<span class="sd">     6   03b_examination_util          </span>
+<span class="sd">     7   04a_treatment_wait(non_trauma)  </span>
+<span class="sd">     8   04b_treatment_util(non_trauma)  </span>
+<span class="sd">     9   05_total_time(non-trauma)       </span>
+<span class="sd">     10  06a_trauma_wait               </span>
+<span class="sd">     11  06b_trauma_util                 </span>
+<span class="sd">     12  07a_treatment_wait(trauma)      </span>
+<span class="sd">     13  07b_treatment_util(trauma)      </span>
+<span class="sd">     14  08_total_time(trauma)           </span>
+<span class="sd">     15  09_throughput                   </span>
+
+<span class="sd">    Expected result: </span>
+<span class="sd">    ---------------</span>
+<span class="sd">        rep_results.shape == (n_reps, 16) and isinstance(rep_results, pd.DataFrame)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">EXPECTED_N_COLUMNS</span> <span class="o">=</span> <span class="mi">16</span>
+    <span class="n">EXPECTED_SHAPE</span> <span class="o">=</span> <span class="p">(</span><span class="n">n_reps</span><span class="p">,</span> <span class="n">EXPECTED_N_COLUMNS</span><span class="p">)</span>
+
+    <span class="c1"># a default experiment</span>
+    <span class="n">default_experiment_params</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">()</span>
+
+    <span class="c1"># run the model in multiple replications mode</span>
+    <span class="n">rep_results</span> <span class="o">=</span> <span class="n">multiple_replications</span><span class="p">(</span><span class="n">default_experiment_params</span><span class="p">,</span> <span class="n">n_reps</span><span class="o">=</span><span class="n">n_reps</span><span class="p">)</span>
+
+    <span class="c1"># test</span>
+    <span class="k">assert</span> <span class="n">rep_results</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">EXPECTED_SHAPE</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rep_results</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s1">&#39;random_number_set&#39;</span><span class="p">,</span> <span class="p">[</span>
+                          <span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">101</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">42</span><span class="p">),</span>
+<span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_random_number_set</span><span class="p">(</span><span class="n">random_number_set</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Test the model produces repeatable results</span>
+<span class="sd">    given the same set set of random seeds.</span>
+<span class="sd">    </span>
+<span class="sd">    Expected result: </span>
+<span class="sd">    ---------------</span>
+<span class="sd">        difference between data frames is 0.0</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+        
+        <span class="n">exp</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">()</span>
+
+        <span class="c1"># run the model in single run model</span>
+        <span class="n">run_results</span> <span class="o">=</span> <span class="n">single_run</span><span class="p">(</span><span class="n">exp</span><span class="p">,</span> <span class="n">random_no_set</span><span class="o">=</span><span class="n">random_number_set</span><span class="p">)</span>
+    
+        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">run_results</span><span class="p">)</span>
+        
+    <span class="c1"># test</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">results</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mf">0.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s1">&#39;rc_period&#39;</span><span class="p">,</span> <span class="p">[</span>
+                          <span class="p">(</span><span class="mf">10.0</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mf">1_000.0</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mf">25.0</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mf">500.0</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mf">143.0</span><span class="p">),</span>
+<span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_run_length_control</span><span class="p">(</span><span class="n">rc_period</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Test that the simulation model can be set up </span>
+<span class="sd">    to run different results collection period.</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">scenario</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">()</span>
+    
+    <span class="c1"># set random number set - this controls sampling for the run.</span>
+    <span class="n">scenario</span><span class="o">.</span><span class="n">set_random_no_set</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+    <span class="c1"># create an instance of the model</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">TreatmentCentreModel</span><span class="p">(</span><span class="n">scenario</span><span class="p">)</span>
+
+    <span class="c1"># run the model</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">results_collection_period</span><span class="o">=</span><span class="n">rc_period</span><span class="p">)</span>
+        
+    <span class="c1"># run results</span>
+    <span class="k">assert</span> <span class="n">model</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">now</span> <span class="o">==</span> <span class="n">rc_period</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">treat_sim.model</span> <span class="kn">import</span> <span class="n">Exponential</span><span class="p">,</span> <span class="n">Uniform</span>
+
+<span class="c1"># created for testing.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s1">&#39;arrival_profile&#39;</span><span class="p">,</span> <span class="p">[</span>
+                          <span class="p">(</span><span class="s1">&#39;data/ed_arrivals.csv&#39;</span><span class="p">),</span> 
+                          <span class="p">(</span><span class="s1">&#39;data/ed_arrivals_test_1.csv&#39;</span><span class="p">),</span> 
+    
+<span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_arrival_numbers</span><span class="p">(</span><span class="n">arrival_profile</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Test that the number of arrivals in a day is correct</span>
+<span class="sd">    on average using a different arrival profiles. </span>
+<span class="sd">    This includes the default used in the application.</span>
+<span class="sd">    </span>
+<span class="sd">    The multiple_replications function is used to generate</span>
+<span class="sd">    the mean number of arrivals over 100 replications.</span>
+<span class="sd">    </span>
+<span class="sd">    We allow for a 1% sampling deviation.</span>
+<span class="sd">    </span>
+<span class="sd">    00_arrivals                               </span>
+
+<span class="sd">    Expected result: </span>
+<span class="sd">    ---------------</span>
+<span class="sd">        mean arrivals = sum(arrival_rate from input file)</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># this function replaces Scenario.init_nspp()</span>
+    <span class="c1"># We use this approach because in treat_sim v2.0.0</span>
+    <span class="c1"># the path to the profile is hard coded and cannot be </span>
+    <span class="c1"># set directly when the Scenario is created.</span>
+    <span class="k">def</span> <span class="nf">init_nspp_for_testing</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="c1"># read arrival profile</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arrivals</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">arrival_profile</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arrivals</span><span class="p">[</span><span class="s1">&#39;mean_iat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">arrivals</span><span class="p">[</span><span class="s1">&#39;arrival_rate&#39;</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">arrivals</span><span class="p">[</span><span class="s1">&#39;arrival_rate&#39;</span><span class="p">]))</span>
+
+        <span class="c1"># maximum arrival rate (smallest time between arrivals)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lambda_max</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">arrivals</span><span class="p">[</span><span class="s1">&#39;arrival_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+        <span class="c1"># thinning exponential</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arrival_dist</span> <span class="o">=</span> <span class="n">Exponential</span><span class="p">(</span><span class="mf">60.0</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">lambda_max</span><span class="p">,</span>
+                                        <span class="n">random_seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">seeds</span><span class="p">[</span><span class="mi">8</span><span class="p">])</span>
+
+        <span class="c1"># thinning uniform rng</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">thinning_rng</span> <span class="o">=</span> <span class="n">Uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> 
+                                    <span class="n">random_seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">seeds</span><span class="p">[</span><span class="mi">9</span><span class="p">])</span>
+    
+    <span class="n">arrival_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">arrival_profile</span><span class="p">)</span>
+    <span class="n">expected_patients</span> <span class="o">=</span> <span class="n">arrival_data</span><span class="p">[</span><span class="s1">&#39;arrival_rate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    
+    <span class="c1"># a default experiment</span>
+    <span class="n">scenario</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">()</span>
+    <span class="c1"># overwrite the nspp init function in the scenario class</span>
+    <span class="n">scenario</span><span class="o">.</span><span class="n">init_nspp</span> <span class="o">=</span> <span class="n">types</span><span class="o">.</span><span class="n">MethodType</span><span class="p">(</span><span class="n">init_nspp_for_testing</span><span class="p">,</span> <span class="n">scenario</span><span class="p">)</span>
+
+    <span class="c1"># run the model in multiple_reps mode</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">multiple_replications</span><span class="p">(</span><span class="n">scenario</span><span class="p">,</span> <span class="n">n_reps</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="c1"># summary results...</span>
+    <span class="n">mean_results</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    
+    <span class="c1"># test</span>
+    <span class="k">assert</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="n">mean_results</span><span class="p">[</span><span class="s1">&#39;00_arrivals&#39;</span><span class="p">],</span> <span class="n">rel</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected_patients</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="extreme-value-tests">
+<h3>3.2. Extreme value tests<a class="headerlink" href="#extreme-value-tests" title="Link to this heading">#</a></h3>
+<p>Here we manipulate the input parameters of the model to test that it behaves as expected. We run the following tests</p>
+<ul class="simple">
+<li><p>All arrivals are trauma</p></li>
+<li><p>All arrivals are non-trauma</p></li>
+<li><p>Infinite capacity for activities</p></li>
+<li><p>All non-trauma patients require treatment</p></li>
+<li><p>All non-trauma patients do not require treatment</p></li>
+<li><p>Block trauma arrivals at stabilisation</p></li>
+<li><p>Block non-trauma arrivals at examination</p></li>
+<li><p>Block all arrivals at triage</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### NOTE: we are ignoring mean of empty array warnings from numpy using filterwarnings</span>
+<span class="c1">### We will handle this in a future release of treat_sim.</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s1">&#39;random_no_set&#39;</span><span class="p">,</span> <span class="p">[</span>
+                          <span class="p">(</span><span class="mi">42</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">754</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">9876534321</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">76546783986555</span><span class="p">),</span> 
+<span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_all_trauma</span><span class="p">(</span><span class="n">random_no_set</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Force all patients to use trauma pathway</span>
+<span class="sd">    </span>
+<span class="sd">    i.e. Set prob_trauma = 1.0</span>
+<span class="sd">    </span>
+<span class="sd">    Expected result:</span>
+<span class="sd">    -------</span>
+<span class="sd">    No patients use the non-trauma pathway this means that a number of KPIs</span>
+<span class="sd">    are NaN (not a number). These include:</span>
+<span class="sd">    &#39;02a_registration_wait&#39;</span>
+<span class="sd">    &#39;05_total_time(non-trauma)&#39;</span>
+<span class="sd">    </span>
+<span class="sd">    Trauma pathway KPIs are valid numbers. We test total time in </span>
+<span class="sd">    system: &#39;08_total_time(trauma)&#39;</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="c1"># create a new scenario and set prob of trauma to 100%</span>
+    <span class="n">scenario</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">(</span><span class="n">prob_trauma</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+    <span class="c1"># run the model in single run model</span>
+    <span class="n">run_results</span> <span class="o">=</span> <span class="n">single_run</span><span class="p">(</span><span class="n">scenario</span><span class="p">,</span> <span class="n">random_no_set</span><span class="o">=</span><span class="n">random_no_set</span><span class="p">)</span>
+        
+    <span class="c1"># run results</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;05_total_time(non-trauma)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> 
+            <span class="ow">and</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;02a_registration_wait&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> 
+            <span class="ow">and</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;08_total_time(trauma)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### NOTE: we are ignoring mean of empty array warnings from numpy using filterwarnings</span>
+<span class="c1">### We will handle this in a future release of treat_sim.</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s1">&#39;random_no_set&#39;</span><span class="p">,</span> <span class="p">[</span>
+                          <span class="p">(</span><span class="mi">42</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">754</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">9876534321</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">76546783986555</span><span class="p">),</span> 
+<span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_all_nontrauma</span><span class="p">(</span><span class="n">random_no_set</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Force all patients to use the non-trauma pathway</span>
+<span class="sd">    </span>
+<span class="sd">    i.e. Set prob_trauma = 0.0</span>
+<span class="sd">    </span>
+<span class="sd">    Expected result:</span>
+<span class="sd">    -------</span>
+<span class="sd">    No patients use the trauma pathway this means that a number of KPIs</span>
+<span class="sd">    if NaN (Not a Number) as no patient use the activities.</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;06a_trauma_wait&#39;</span>
+<span class="sd">    &#39;07a_treatment_wait(trauma)&#39;</span>
+<span class="sd">    &#39;08_total_time(trauma)&#39;</span>
+<span class="sd">    </span>
+<span class="sd">    Non-trauma pathway KPIs are valid numbers. We test</span>
+<span class="sd">    &#39;02a_registration_wait&#39;</span>
+<span class="sd">    &#39;05_total_time(non-trauma)&#39;</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="c1"># create a new scenario and set prob of trauma to 100%</span>
+    <span class="n">scenario</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">(</span><span class="n">prob_trauma</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+
+    <span class="c1"># run the model in single run model</span>
+    <span class="n">run_results</span> <span class="o">=</span> <span class="n">single_run</span><span class="p">(</span><span class="n">scenario</span><span class="p">,</span> <span class="n">random_no_set</span><span class="o">=</span><span class="n">random_no_set</span><span class="p">)</span>
+        
+    <span class="c1"># run results</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;06a_trauma_wait&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> 
+            <span class="ow">and</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;07a_treatment_wait(trauma)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> 
+            <span class="ow">and</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;08_total_time(trauma)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> 
+            <span class="ow">and</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;02a_registration_wait&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="ow">and</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;05_total_time(non-trauma)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s1">&#39;random_no_set&#39;</span><span class="p">,</span> <span class="p">[</span>
+                          <span class="p">(</span><span class="mi">42</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">754</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">9876534321</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">76546783986555</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">9876888854637815463789</span><span class="p">)</span>
+<span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_infinite_capacity</span><span class="p">(</span><span class="n">random_no_set</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Remove all capacity constraints in the model </span>
+<span class="sd">    by setting all capacity to M a large number</span>
+<span class="sd">    </span>
+<span class="sd">    Expected result:</span>
+<span class="sd">    -------</span>
+<span class="sd">    No queuing. The following KPIs = 0.0</span>
+<span class="sd">    </span>
+<span class="sd">    01a_triage_wait</span>
+<span class="sd">    02a_registration_wait</span>
+<span class="sd">    03a_examination_wait</span>
+<span class="sd">    04a_treatment_wait(non_trauma)</span>
+<span class="sd">    06a_trauma_wait&#39;</span>
+<span class="sd">    07a_treatment_wait(trauma)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="n">M</span> <span class="o">=</span> <span class="mi">100_000_000</span>
+    
+    <span class="c1"># create a new scenario and set prob of trauma to 100%</span>
+    <span class="n">scenario</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">(</span><span class="n">n_triage</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> <span class="n">n_reg</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> <span class="n">n_exam</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> <span class="n">n_trauma</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> 
+                        <span class="n">n_cubicles_1</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> <span class="n">n_cubicles_2</span><span class="o">=</span><span class="n">M</span><span class="p">)</span>
+
+    <span class="c1"># run the model in single run model</span>
+    <span class="n">run_results</span> <span class="o">=</span> <span class="n">single_run</span><span class="p">(</span><span class="n">scenario</span><span class="p">,</span> <span class="n">random_no_set</span><span class="o">=</span><span class="n">random_no_set</span><span class="p">)</span>
+    
+    
+    <span class="k">assert</span> <span class="p">(</span><span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;01a_triage_wait&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.0</span>
+            <span class="ow">and</span> <span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;02a_registration_wait&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.0</span>
+            <span class="ow">and</span> <span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;03a_examination_wait&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.0</span>
+            <span class="ow">and</span> <span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;04a_treatment_wait(non_trauma)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.0</span>
+            <span class="ow">and</span> <span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;06a_trauma_wait&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.0</span>
+            <span class="ow">and</span> <span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;07a_treatment_wait(trauma)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### NOTE: we are ignoring mean of empty array warnings from numpy using filterwarnings</span>
+<span class="c1">### We will handle this in a future release of treat_sim.</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s1">&#39;random_no_set&#39;</span><span class="p">,</span> <span class="p">[</span>
+                          <span class="p">(</span><span class="mi">42</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">754</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">9876534321</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">76546783986555</span><span class="p">),</span> 
+<span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_no_treatment_for_nontrauma</span><span class="p">(</span><span class="n">random_no_set</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Force all non-trauma patients to be discharged without treatment</span>
+<span class="sd">    </span>
+<span class="sd">    i.e. non_trauma_treat_p = 0.0</span>
+<span class="sd">    </span>
+<span class="sd">    Expected result:</span>
+<span class="sd">    -------</span>
+<span class="sd">    No non-trauma patients queue or use treatment cubicles</span>
+<span class="sd">    The following variable is NaN</span>
+
+<span class="sd">    04a_treatment_wait(non_trauma)</span>
+<span class="sd">    </span>
+<span class="sd">    and the utilisation of the non-trauma cubicles is 0</span>
+<span class="sd">    </span>
+<span class="sd">    04b_treatment_util(non_trauma)</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># create a new scenario and set prob of trauma to 100%</span>
+    <span class="n">scenario</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">(</span><span class="n">non_trauma_treat_p</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+
+    <span class="c1"># run the model in single run model</span>
+    <span class="n">run_results</span> <span class="o">=</span> <span class="n">single_run</span><span class="p">(</span><span class="n">scenario</span><span class="p">,</span> <span class="n">random_no_set</span><span class="o">=</span><span class="n">random_no_set</span><span class="p">)</span>
+        
+    <span class="c1"># run results</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;04a_treatment_wait(non_trauma)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> 
+            <span class="ow">and</span> <span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;04b_treatment_util(non_trauma)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### NOTE: we are ignoring mean of empty array warnings from numpy using filterwarnings</span>
+<span class="c1">### We will handle this in a future release of treat_sim.</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s1">&#39;random_no_set&#39;</span><span class="p">,</span> <span class="p">[</span>
+                          <span class="p">(</span><span class="mi">42</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">754</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">9876534321</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">76546783986555</span><span class="p">),</span> 
+<span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_all_nontrauma_no_treatment</span><span class="p">(</span><span class="n">random_no_set</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Force all patients to use the non-trauma pathway</span>
+<span class="sd">    </span>
+<span class="sd">    i.e. Set prob_trauma = 0.0 and non_trauma_treat_p = 0.0</span>
+<span class="sd">    </span>
+<span class="sd">    Expected result:</span>
+<span class="sd">    -------</span>
+<span class="sd">    No patients use the trauma pathway this means that a number of KPIs</span>
+<span class="sd">    if NaN (Not a Number) as no patient use the activities.</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;06a_trauma_wait&#39;</span>
+<span class="sd">    &#39;07a_treatment_wait(trauma)&#39;</span>
+<span class="sd">    &#39;08_total_time(trauma)&#39;</span>
+<span class="sd">    </span>
+<span class="sd">    Non-trauma pathway KPIs are valid numbers. We test</span>
+<span class="sd">    &#39;02a_registration_wait&#39;</span>
+<span class="sd">    &#39;05_total_time(non-trauma)&#39;</span>
+<span class="sd">    </span>
+<span class="sd">    No non-trauma patients queue or use treatment cubicles</span>
+<span class="sd">    The following variable is NaN</span>
+
+<span class="sd">    04a_treatment_wait(non_trauma)</span>
+<span class="sd">    </span>
+<span class="sd">    and the utilisation of the non-trauma cubicles is 0</span>
+<span class="sd">    </span>
+<span class="sd">    04b_treatment_util(non_trauma)</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="c1"># create a new scenario and set prob of trauma to 100%</span>
+    <span class="n">scenario</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">(</span><span class="n">prob_trauma</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+                        <span class="n">non_trauma_treat_p</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+
+    <span class="c1"># run the model in single run model</span>
+    <span class="n">run_results</span> <span class="o">=</span> <span class="n">single_run</span><span class="p">(</span><span class="n">scenario</span><span class="p">,</span> <span class="n">random_no_set</span><span class="o">=</span><span class="n">random_no_set</span><span class="p">)</span>
+        
+    <span class="c1"># run results</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;06a_trauma_wait&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> 
+            <span class="ow">and</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;07a_treatment_wait(trauma)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> 
+            <span class="ow">and</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;08_total_time(trauma)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> 
+            <span class="ow">and</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;02a_registration_wait&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="ow">and</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;05_total_time(non-trauma)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="ow">and</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;04a_treatment_wait(non_trauma)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> 
+            <span class="ow">and</span> <span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;04b_treatment_util(non_trauma)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### NOTE: we are ignoring mean of empty array warnings from numpy using filterwarnings</span>
+<span class="c1">### We will handle this in a future release of treat_sim.</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s1">&#39;random_no_set&#39;</span><span class="p">,</span> <span class="p">[</span>
+                          <span class="p">(</span><span class="mi">42</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">754</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">9876534321</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">76546783986555</span><span class="p">),</span> 
+<span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_block_trauma_at_stabilisation</span><span class="p">(</span><span class="n">random_no_set</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Block all trauma patients at stablisation</span>
+<span class="sd">    This is achieved by setting mean trauma time to</span>
+<span class="sd">    M a very large number.</span>
+<span class="sd">    </span>
+<span class="sd">    Expected result:</span>
+<span class="sd">    -------</span>
+<span class="sd">    Trauma pathway total_time in system = NaN    </span>
+<span class="sd">    Non_trama pathway operates as expected. Not NaN</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="mi">100_000_000</span>
+    
+    <span class="c1"># create a new scenario and set prob of trauma to 100%</span>
+    <span class="n">scenario</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">(</span><span class="n">trauma_mean</span><span class="o">=</span><span class="n">M</span><span class="p">)</span>
+
+    <span class="c1"># run the model in single run model</span>
+    <span class="n">run_results</span> <span class="o">=</span> <span class="n">single_run</span><span class="p">(</span><span class="n">scenario</span><span class="p">,</span> <span class="n">random_no_set</span><span class="o">=</span><span class="n">random_no_set</span><span class="p">)</span>
+        
+    <span class="c1"># run results</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;08_total_time(trauma)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> 
+            <span class="ow">and</span> <span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;05_total_time(non-trauma)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### NOTE: we are ignoring mean of empty array warnings from numpy using filterwarnings</span>
+<span class="c1">### We will handle this in a future release of treat_sim.</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s1">&#39;random_no_set&#39;</span><span class="p">,</span> <span class="p">[</span>
+                          <span class="p">(</span><span class="mi">42</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">754</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">9876534321</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">76546783986555</span><span class="p">),</span> 
+<span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_block_nontrauma_at_examination</span><span class="p">(</span><span class="n">random_no_set</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Block all non trauma patients at examination</span>
+<span class="sd">    This is achieved by setting mean examination time to</span>
+<span class="sd">    M a very large number.</span>
+
+<span class="sd">    Expected result:</span>
+<span class="sd">    -------</span>
+<span class="sd">    Trauma pathway total_time in system is normal i.e. not a NaN    </span>
+<span class="sd">    Non_trama pathway total pathway time is NaN and waiting time for</span>
+<span class="sd">    treatment is NaN</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="mi">100_000_000</span>
+    
+    <span class="c1"># create a new scenario and set prob of trauma to 100%</span>
+    <span class="n">scenario</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">(</span><span class="n">exam_mean</span><span class="o">=</span><span class="n">M</span><span class="p">)</span>
+
+    <span class="c1"># run the model in single run model</span>
+    <span class="n">run_results</span> <span class="o">=</span> <span class="n">single_run</span><span class="p">(</span><span class="n">scenario</span><span class="p">,</span> <span class="n">random_no_set</span><span class="o">=</span><span class="n">random_no_set</span><span class="p">)</span>
+        
+    <span class="c1"># run results</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="ow">not</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;08_total_time(trauma)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> 
+            <span class="ow">and</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;04a_treatment_wait(non_trauma)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="ow">and</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;05_total_time(non-trauma)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### NOTE: we are ignoring mean of empty array warnings from numpy using filterwarnings</span>
+<span class="c1">### We will handle this in a future release of treat_sim.</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s1">&#39;random_no_set&#39;</span><span class="p">,</span> <span class="p">[</span>
+                          <span class="p">(</span><span class="mi">42</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">754</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">9876534321</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">76546783986555</span><span class="p">),</span> 
+<span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_block_all_arrivals_at_triage</span><span class="p">(</span><span class="n">random_no_set</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Block all all patient arrivals at triage</span>
+<span class="sd">    This is achieved by setting mean triage time to</span>
+<span class="sd">    M a very large number.  We will set triage capacity to 1.</span>
+<span class="sd">    This also means that the queue length of triage will be arrivals - 1</span>
+
+<span class="sd">    Expected result:</span>
+<span class="sd">    -------</span>
+<span class="sd">    Trauma pathway total_time in system is normal i.e. not a NaN    </span>
+<span class="sd">    Non_trama pathway total pathway time is NaN and waiting time for</span>
+<span class="sd">    treatment is NaN</span>
+<span class="sd">    </span>
+<span class="sd">    Notes:</span>
+<span class="sd">    -----</span>
+<span class="sd">    After a TreatmentCentreModel has been initialised by single_run</span>
+<span class="sd">    a variable called `triage` is available. This is the simpy.Resource</span>
+<span class="sd">    representing triage capacity.</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="mi">100_000_000</span>
+    
+    <span class="c1"># create a new scenario and set prob of trauma to 100%</span>
+    <span class="n">scenario</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">(</span><span class="n">triage_mean</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> <span class="n">n_triage</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="c1"># run the model in single run model</span>
+    <span class="n">run_results</span> <span class="o">=</span> <span class="n">single_run</span><span class="p">(</span><span class="n">scenario</span><span class="p">,</span> <span class="n">random_no_set</span><span class="o">=</span><span class="n">random_no_set</span><span class="p">)</span>
+        
+    <span class="c1"># run results</span>
+    <span class="k">assert</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;08_total_time(trauma)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> 
+            <span class="ow">and</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;05_total_time(non-trauma)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">scenario</span><span class="o">.</span><span class="n">triage</span><span class="o">.</span><span class="n">queue</span><span class="p">)</span> <span class="o">==</span> <span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;00_arrivals&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="deterministic-activities">
+<h3>3.3 Deterministic activities<a class="headerlink" href="#deterministic-activities" title="Link to this heading">#</a></h3>
+<p>We have simplifed the model to a deterministic run by replacing all activity distributions with a fixed static value.</p>
+<blockquote>
+<div><p>To do: This will involve modifying the Scenario class distributions. Do we allow arrivals to remain stochastic (rate and patient type?).</p>
+</div></blockquote>
+<section id="functions-used-to-overwrite-scenario-in-deterministic-tests">
+<h4>Functions used to overwrite <code class="docutils literal notranslate"><span class="pre">Scenario</span></code> in deterministic tests.<a class="headerlink" href="#functions-used-to-overwrite-scenario-in-deterministic-tests" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">init_sampling_to_fixed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Create the distributions used by the model and initialise </span>
+<span class="sd">    the random seeds of each.  This modified function</span>
+<span class="sd">    makes use of a fixed distribution where the fixed value</span>
+<span class="sd">    is the mean of the original sampling distribution.</span>
+<span class="sd">    </span>
+<span class="sd">    We ignore arrivals as this is handled by init_nspp()</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>       
+    <span class="c1"># create distributions - all are fixed apart from arrivals</span>
+
+    <span class="c1"># Triage duration</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">triage_dist</span> <span class="o">=</span> <span class="n">FixedDistribution</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">triage_mean</span><span class="p">)</span>
+
+    <span class="c1"># Registration duration (non-trauma only)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">reg_dist</span> <span class="o">=</span> <span class="n">FixedDistribution</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reg_mean</span><span class="p">)</span>
+
+    <span class="c1"># Evaluation (non-trauma only)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">exam_dist</span> <span class="o">=</span> <span class="n">FixedDistribution</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">exam_mean</span><span class="p">)</span>
+
+    <span class="c1"># Trauma/stablisation duration (trauma only)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">trauma_dist</span> <span class="o">=</span> <span class="n">FixedDistribution</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trauma_mean</span><span class="p">)</span>
+
+    <span class="c1"># Non-trauma treatment</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">nt_treat_dist</span> <span class="o">=</span> <span class="n">FixedDistribution</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">non_trauma_treat_mean</span><span class="p">)</span>
+
+    <span class="c1"># treatment of trauma patients</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">treat_dist</span> <span class="o">=</span> <span class="n">FixedDistribution</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trauma_treat_mean</span><span class="p">)</span>
+
+    <span class="c1"># probability of non-trauma patient requiring treatment</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">nt_p_treat_dist</span> <span class="o">=</span> <span class="n">FixedDistribution</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">non_trauma_treat_p</span><span class="p">)</span>
+
+    <span class="c1"># probability of non-trauma versus trauma patient</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">p_trauma_dist</span> <span class="o">=</span> <span class="n">FixedDistribution</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prob_trauma</span><span class="p">)</span>
+
+    <span class="c1"># init sampling for non-stationary poisson process</span>
+    <span class="c1"># we leave this as stochastic.</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">init_nspp</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s1">&#39;random_no_set&#39;</span><span class="p">,</span> <span class="p">[</span>
+                          <span class="p">(</span><span class="mi">42</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">754</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">9876534321</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">76546783986555</span><span class="p">),</span> 
+<span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_deterministic_nontrauma_pathway</span><span class="p">(</span><span class="n">random_no_set</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Test a single_run of the model when the non_trauma</span>
+<span class="sd">    pathway is set to determinstic values with no capacity </span>
+<span class="sd">    constraints.</span>
+<span class="sd">    </span>
+<span class="sd">    Arrivals are left as stochastic, this should not affect</span>
+<span class="sd">    result.</span>
+
+<span class="sd">    Expected result: </span>
+<span class="sd">    ---------------</span>
+<span class="sd">        total time in system = 37.3 allowing for floating point error.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># create a new scenario and set prob of trauma to 100%</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="mi">1000_000_000</span>
+
+    <span class="c1"># create a new scenario and set prob of trauma to 100%</span>
+    <span class="n">scenario</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">(</span><span class="n">n_triage</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> <span class="n">n_reg</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> <span class="n">n_exam</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> <span class="n">n_trauma</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> 
+                        <span class="n">n_cubicles_1</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> <span class="n">n_cubicles_2</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> <span class="n">non_trauma_treat_p</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">prob_trauma</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+
+    <span class="c1"># calculate the expected time in system = sum of deterministic activity times.</span>
+    <span class="n">expected_total_time</span> <span class="o">=</span> <span class="n">scenario</span><span class="o">.</span><span class="n">triage_mean</span> \
+        <span class="o">+</span> <span class="n">scenario</span><span class="o">.</span><span class="n">reg_mean</span> <span class="o">+</span> <span class="n">scenario</span><span class="o">.</span><span class="n">exam_mean</span> <span class="o">+</span> <span class="n">scenario</span><span class="o">.</span><span class="n">non_trauma_treat_mean</span>
+
+    <span class="c1"># overwrite the function</span>
+    <span class="n">scenario</span><span class="o">.</span><span class="n">init_sampling</span> <span class="o">=</span> <span class="n">types</span><span class="o">.</span><span class="n">MethodType</span><span class="p">(</span><span class="n">init_sampling_to_fixed</span><span class="p">,</span> <span class="n">scenario</span><span class="p">)</span>
+    
+    <span class="c1"># run the determinstic pathway (random numbers should make no difference)</span>
+    <span class="n">run_results</span> <span class="o">=</span> <span class="n">single_run</span><span class="p">(</span><span class="n">scenario</span><span class="p">,</span> <span class="n">random_no_set</span><span class="o">=</span><span class="n">random_no_set</span><span class="p">)</span>
+
+    <span class="c1"># test</span>
+    <span class="k">assert</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;05_total_time(non-trauma)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="n">expected_total_time</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s1">&#39;random_no_set&#39;</span><span class="p">,</span> <span class="p">[</span>
+                          <span class="p">(</span><span class="mi">42</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">754</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">9876534321</span><span class="p">),</span>
+                          <span class="p">(</span><span class="mi">76546783986555</span><span class="p">),</span> 
+<span class="p">])</span>
+<span class="k">def</span> <span class="nf">test_deterministic_trauma_pathway</span><span class="p">(</span><span class="n">random_no_set</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Test a single_run of the model when the trauma</span>
+<span class="sd">    pathway is set to determinstic values with no capacity </span>
+<span class="sd">    constraints.</span>
+<span class="sd">    </span>
+<span class="sd">    Arrivals are left as stochastic, this should not affect</span>
+<span class="sd">    result.</span>
+
+<span class="sd">    Expected result: </span>
+<span class="sd">    ---------------</span>
+<span class="sd">        total time in system = sum(triage+stablisation+treatment) </span>
+<span class="sd">        allowing for floating point error.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># create a new scenario and set prob of trauma to 100%</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="mi">1000_000_000</span>
+
+    <span class="c1"># create a new scenario and set prob of trauma to 100%</span>
+    <span class="n">scenario</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">(</span><span class="n">n_triage</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> <span class="n">n_reg</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> <span class="n">n_exam</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> <span class="n">n_trauma</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> 
+                        <span class="n">n_cubicles_1</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> <span class="n">n_cubicles_2</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> <span class="n">prob_trauma</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+    
+    <span class="c1"># calculate the expected time in system = sum of deterministic activity times.</span>
+    <span class="n">expected_total_time</span> <span class="o">=</span> <span class="n">scenario</span><span class="o">.</span><span class="n">triage_mean</span> \
+        <span class="o">+</span> <span class="n">scenario</span><span class="o">.</span><span class="n">trauma_mean</span> <span class="o">+</span> <span class="n">scenario</span><span class="o">.</span><span class="n">trauma_treat_mean</span>
+    
+    <span class="c1"># overwrite the function</span>
+    <span class="n">scenario</span><span class="o">.</span><span class="n">init_sampling</span> <span class="o">=</span> <span class="n">types</span><span class="o">.</span><span class="n">MethodType</span><span class="p">(</span><span class="n">init_sampling_to_fixed</span><span class="p">,</span> <span class="n">scenario</span><span class="p">)</span>
+    
+    <span class="c1"># run the determinstic pathway (random numbers should make no difference)</span>
+    <span class="n">run_results</span> <span class="o">=</span> <span class="n">single_run</span><span class="p">(</span><span class="n">scenario</span><span class="p">,</span> <span class="n">random_no_set</span><span class="o">=</span><span class="n">random_no_set</span><span class="p">)</span>
+
+    <span class="c1"># test</span>
+    <span class="k">assert</span> <span class="n">pytest</span><span class="o">.</span><span class="n">approx</span><span class="p">(</span><span class="n">run_results</span><span class="p">[</span><span class="s1">&#39;08_total_time(trauma)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">==</span> <span class="n">expected_total_time</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="run-all-automated-tests">
+<h2>4. Run all automated tests<a class="headerlink" href="#run-all-automated-tests" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipytest</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;-vv&quot;</span><span class="p">,</span> <span class="s2">&quot;--no-header&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">======================================= test session starts ========================================</span>
+<span class=" -Color -Color-Bold">collecting ... </span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>collected 68 items
+
+t_3d9d6280cf97400b915ffcfda69e2155.py::test_single_run_results_length_and_type 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED        [  1%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_multiple_replications_results_length_and_type[1] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [  2%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_multiple_replications_results_length_and_type[2] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [  4%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_multiple_replications_results_length_and_type[10] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [  5%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_multiple_replications_results_length_and_type[23] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [  7%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_random_number_set[0] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                      [  8%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_random_number_set[1] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                      [ 10%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_random_number_set[2] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                      [ 11%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_random_number_set[101] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                    [ 13%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_random_number_set[42] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                     [ 14%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_run_length_control[10.0] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                  [ 16%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_run_length_control[1000.0] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                [ 17%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_run_length_control[25.0] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                  [ 19%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_run_length_control[500.0] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                 [ 20%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_run_length_control[143.0] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                 [ 22%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_arrival_numbers[data/ed_arrivals.csv] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED     [ 23%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_arrival_numbers[data/ed_arrivals_test_1.csv] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [ 25%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_trauma[42] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                            [ 26%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_trauma[1] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                             [ 27%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_trauma[754] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                           [ 29%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_trauma[9876534321] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                    [ 30%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_trauma[76546783986555] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                [ 32%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_nontrauma[42] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                         [ 33%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_nontrauma[1] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                          [ 35%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_nontrauma[754] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                        [ 36%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_nontrauma[9876534321] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                 [ 38%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_nontrauma[76546783986555] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED             [ 39%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_infinite_capacity[42] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                     [ 41%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_infinite_capacity[1] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                      [ 42%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_infinite_capacity[754] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                    [ 44%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_infinite_capacity[9876534321] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED             [ 45%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_infinite_capacity[76546783986555] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED         [ 47%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_infinite_capacity[9876888854637815463789] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [ 48%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_no_treatment_for_nontrauma[42] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED            [ 50%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_no_treatment_for_nontrauma[1] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED             [ 51%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_no_treatment_for_nontrauma[754] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED           [ 52%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_no_treatment_for_nontrauma[9876534321] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED    [ 54%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_no_treatment_for_nontrauma[76546783986555] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [ 55%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_nontrauma_no_treatment[42] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED            [ 57%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_nontrauma_no_treatment[1] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED             [ 58%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_nontrauma_no_treatment[754] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED           [ 60%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_nontrauma_no_treatment[9876534321] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED    [ 61%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_nontrauma_no_treatment[76546783986555] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [ 63%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_trauma_at_stabilisation[42] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED         [ 64%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_trauma_at_stabilisation[1] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED          [ 66%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_trauma_at_stabilisation[754] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED        [ 67%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_trauma_at_stabilisation[9876534321] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [ 69%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_trauma_at_stabilisation[76546783986555] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [ 70%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_nontrauma_at_examination[42] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED        [ 72%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_nontrauma_at_examination[1] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED         [ 73%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_nontrauma_at_examination[754] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED       [ 75%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_nontrauma_at_examination[9876534321] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [ 76%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_nontrauma_at_examination[76546783986555] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [ 77%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_all_arrivals_at_triage[42] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED          [ 79%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_all_arrivals_at_triage[1] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED           [ 80%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_all_arrivals_at_triage[754] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED         [ 82%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_all_arrivals_at_triage[9876534321] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED  [ 83%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_all_arrivals_at_triage[76546783986555] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [ 85%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_deterministic_nontrauma_pathway[42] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED       [ 86%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_deterministic_nontrauma_pathway[1] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED        [ 88%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_deterministic_nontrauma_pathway[754] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED      [ 89%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_deterministic_nontrauma_pathway[9876534321] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [ 91%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_deterministic_nontrauma_pathway[76546783986555] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [ 92%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_deterministic_trauma_pathway[42] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED          [ 94%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_deterministic_trauma_pathway[1] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED           [ 95%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_deterministic_trauma_pathway[754] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED         [ 97%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_deterministic_trauma_pathway[9876534321] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED  [ 98%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_deterministic_trauma_pathway[76546783986555] 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [100%]</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">======================================= </span><span class=" -Color -Color-Bold -Color-Bold-Green">68 passed</span><span class=" -Color -Color-Green"> in 15.52s ========================================</span>
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ExitCode.OK: 0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "TomMonks/treatment-centre-sim",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content/02_model_code"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04_model.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">SimPy: Treatment Centre</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../03_stress/01_objectives.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">1. Objectives</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-code-imports">1. Model Code Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">2. Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests">3. Tests</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functionality-tests">3.1 Functionality tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-value-tests">3.2. Extreme value tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deterministic-activities">3.3 Deterministic activities</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-used-to-overwrite-scenario-in-deterministic-tests">Functions used to overwrite <code class="docutils literal notranslate"><span class="pre">Scenario</span></code> in deterministic tests.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#run-all-automated-tests">4. Run all automated tests</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Thomas Monks
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
