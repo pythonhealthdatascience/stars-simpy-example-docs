@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Model testing &#8212; Treatment centre simulation</title>
   
@@ -18,45 +19,49 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
-    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js?v=36754332"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/02_model_code/05_testing';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -71,9 +76,10 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
+
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -114,14 +120,11 @@
 </form></div>
   </div>
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
-    </header>
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
   
-
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
-      
-      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -149,18 +152,7 @@
     <p class="title logo__title">Treatment centre simulation</p>
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -461,10 +453,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article">
+                <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="model-testing">
-<h1>Model testing<a class="headerlink" href="#model-testing" title="Link to this heading">#</a></h1>
+<h1>Model testing<a class="headerlink" href="#model-testing" title="Permalink to this heading">#</a></h1>
 <p>This notebook provides a set of tests to run against <code class="docutils literal notranslate"><span class="pre">treat_sim</span></code>.  These tests are either pass or fail and no interpretation is needed. A summary of test results is provided at the end of the notebook.</p>
 <blockquote>
 <div><p>This notebook is a work in progress and more tests will be added in due course as we refine and/or expand <code class="docutils literal notranslate"><span class="pre">treat_sim</span></code> functionality.</p>
@@ -485,13 +477,20 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;2.0.0&#39;
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">## these tests are applied to treat_sim version =</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">treat_sim</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">treat_sim</span><span class="o">.</span><span class="n">__version__</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;treat_sim&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <section id="model-code-imports">
-<h2>1. Model Code Imports<a class="headerlink" href="#model-code-imports" title="Link to this heading">#</a></h2>
+<h2>1. Model Code Imports<a class="headerlink" href="#model-code-imports" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">treat_sim.model</span> <span class="kn">import</span> <span class="p">(</span>
@@ -507,7 +506,7 @@ document.write(`
 </div>
 </section>
 <section id="imports">
-<h2>2. Imports<a class="headerlink" href="#imports" title="Link to this heading">#</a></h2>
+<h2>2. Imports<a class="headerlink" href="#imports" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -529,9 +528,9 @@ document.write(`
 </div>
 </section>
 <section id="tests">
-<h2>3. Tests<a class="headerlink" href="#tests" title="Link to this heading">#</a></h2>
+<h2>3. Tests<a class="headerlink" href="#tests" title="Permalink to this heading">#</a></h2>
 <section id="functionality-tests">
-<h3>3.1 Functionality tests<a class="headerlink" href="#functionality-tests" title="Link to this heading">#</a></h3>
+<h3>3.1 Functionality tests<a class="headerlink" href="#functionality-tests" title="Permalink to this heading">#</a></h3>
 <p>Here we test that various modes of running the model work correctly.  These include</p>
 <ul class="simple">
 <li><p>single run mode</p></li>
@@ -785,7 +784,7 @@ document.write(`
 </div>
 </section>
 <section id="extreme-value-tests">
-<h3>3.2. Extreme value tests<a class="headerlink" href="#extreme-value-tests" title="Link to this heading">#</a></h3>
+<h3>3.2. Extreme value tests<a class="headerlink" href="#extreme-value-tests" title="Permalink to this heading">#</a></h3>
 <p>Here we manipulate the input parameters of the model to test that it behaves as expected. We run the following tests</p>
 <ul class="simple">
 <li><p>All arrivals are trauma</p></li>
@@ -1175,13 +1174,13 @@ document.write(`
 </div>
 </section>
 <section id="deterministic-activities">
-<h3>3.3 Deterministic activities<a class="headerlink" href="#deterministic-activities" title="Link to this heading">#</a></h3>
+<h3>3.3 Deterministic activities<a class="headerlink" href="#deterministic-activities" title="Permalink to this heading">#</a></h3>
 <p>We have simplifed the model to a deterministic run by replacing all activity distributions with a fixed static value.</p>
 <blockquote>
 <div><p>To do: This will involve modifying the Scenario class distributions. Do we allow arrivals to remain stochastic (rate and patient type?).</p>
 </div></blockquote>
 <section id="functions-used-to-overwrite-scenario-in-deterministic-tests">
-<h4>Functions used to overwrite <code class="docutils literal notranslate"><span class="pre">Scenario</span></code> in deterministic tests.<a class="headerlink" href="#functions-used-to-overwrite-scenario-in-deterministic-tests" title="Link to this heading">#</a></h4>
+<h4>Functions used to overwrite <code class="docutils literal notranslate"><span class="pre">Scenario</span></code> in deterministic tests.<a class="headerlink" href="#functions-used-to-overwrite-scenario-in-deterministic-tests" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">init_sampling_to_fixed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1324,7 +1323,7 @@ document.write(`
 </section>
 </section>
 <section id="run-all-automated-tests">
-<h2>4. Run all automated tests<a class="headerlink" href="#run-all-automated-tests" title="Link to this heading">#</a></h2>
+<h2>4. Run all automated tests<a class="headerlink" href="#run-all-automated-tests" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ipytest</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;-vv&quot;</span><span class="p">,</span> <span class="s2">&quot;--no-header&quot;</span><span class="p">)</span>
@@ -1333,420 +1332,78 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">======================================= test session starts ========================================</span>
-<span class=" -Color -Color-Bold">collecting ... </span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>collected 68 items
+<span class=" -Color -Color-Bold">collecting ... </span>collected 68 items
 
-t_3d9d6280cf97400b915ffcfda69e2155.py::test_single_run_results_length_and_type 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED        [  1%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_multiple_replications_results_length_and_type[1] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [  2%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_multiple_replications_results_length_and_type[2] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [  4%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_multiple_replications_results_length_and_type[10] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [  5%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_multiple_replications_results_length_and_type[23] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [  7%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_random_number_set[0] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                      [  8%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_random_number_set[1] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                      [ 10%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_random_number_set[2] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                      [ 11%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_random_number_set[101] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                    [ 13%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_random_number_set[42] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                     [ 14%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_run_length_control[10.0] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                  [ 16%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_run_length_control[1000.0] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                [ 17%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_run_length_control[25.0] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                  [ 19%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_run_length_control[500.0] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                 [ 20%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_run_length_control[143.0] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                 [ 22%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_arrival_numbers[data/ed_arrivals.csv] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED     [ 23%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_arrival_numbers[data/ed_arrivals_test_1.csv] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [ 25%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_trauma[42] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                            [ 26%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_trauma[1] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                             [ 27%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_trauma[754] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                           [ 29%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_trauma[9876534321] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                    [ 30%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_trauma[76546783986555] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                [ 32%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_nontrauma[42] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                         [ 33%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_nontrauma[1] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                          [ 35%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_nontrauma[754] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                        [ 36%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_nontrauma[9876534321] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                 [ 38%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_nontrauma[76546783986555] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED             [ 39%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_infinite_capacity[42] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                     [ 41%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_infinite_capacity[1] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                      [ 42%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_infinite_capacity[754] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED                    [ 44%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_infinite_capacity[9876534321] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED             [ 45%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_infinite_capacity[76546783986555] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED         [ 47%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_infinite_capacity[9876888854637815463789] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [ 48%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_no_treatment_for_nontrauma[42] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED            [ 50%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_no_treatment_for_nontrauma[1] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED             [ 51%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_no_treatment_for_nontrauma[754] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED           [ 52%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_no_treatment_for_nontrauma[9876534321] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED    [ 54%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_no_treatment_for_nontrauma[76546783986555] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [ 55%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_nontrauma_no_treatment[42] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED            [ 57%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_nontrauma_no_treatment[1] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED             [ 58%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_nontrauma_no_treatment[754] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED           [ 60%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_nontrauma_no_treatment[9876534321] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED    [ 61%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_all_nontrauma_no_treatment[76546783986555] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [ 63%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_trauma_at_stabilisation[42] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED         [ 64%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_trauma_at_stabilisation[1] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED          [ 66%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_trauma_at_stabilisation[754] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED        [ 67%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_trauma_at_stabilisation[9876534321] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [ 69%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_trauma_at_stabilisation[76546783986555] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [ 70%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_nontrauma_at_examination[42] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED        [ 72%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_nontrauma_at_examination[1] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED         [ 73%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_nontrauma_at_examination[754] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED       [ 75%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_nontrauma_at_examination[9876534321] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [ 76%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_nontrauma_at_examination[76546783986555] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [ 77%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_all_arrivals_at_triage[42] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED          [ 79%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_all_arrivals_at_triage[1] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED           [ 80%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_all_arrivals_at_triage[754] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED         [ 82%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_all_arrivals_at_triage[9876534321] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED  [ 83%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_block_all_arrivals_at_triage[76546783986555] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [ 85%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_deterministic_nontrauma_pathway[42] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED       [ 86%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_deterministic_nontrauma_pathway[1] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED        [ 88%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_deterministic_nontrauma_pathway[754] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED      [ 89%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_deterministic_nontrauma_pathway[9876534321] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [ 91%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_deterministic_nontrauma_pathway[76546783986555] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [ 92%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_deterministic_trauma_pathway[42] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED          [ 94%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_deterministic_trauma_pathway[1] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED           [ 95%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_deterministic_trauma_pathway[754] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED         [ 97%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_deterministic_trauma_pathway[9876534321] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED  [ 98%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>t_3d9d6280cf97400b915ffcfda69e2155.py::test_deterministic_trauma_pathway[76546783986555] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">PASSED [100%]</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">======================================= </span><span class=" -Color -Color-Bold -Color-Bold-Green">68 passed</span><span class=" -Color -Color-Green"> in 15.52s ========================================</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_single_run_results_length_and_type <span class=" -Color -Color-Green">PASSED        [  1%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_multiple_replications_results_length_and_type[1] <span class=" -Color -Color-Green">PASSED [  2%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_multiple_replications_results_length_and_type[2] <span class=" -Color -Color-Green">PASSED [  4%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_multiple_replications_results_length_and_type[10] <span class=" -Color -Color-Green">PASSED [  5%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_multiple_replications_results_length_and_type[23] <span class=" -Color -Color-Green">PASSED [  7%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_random_number_set[0] <span class=" -Color -Color-Green">PASSED                      [  8%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_random_number_set[1] <span class=" -Color -Color-Green">PASSED                      [ 10%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_random_number_set[2] <span class=" -Color -Color-Green">PASSED                      [ 11%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_random_number_set[101] <span class=" -Color -Color-Green">PASSED                    [ 13%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_random_number_set[42] <span class=" -Color -Color-Green">PASSED                     [ 14%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_run_length_control[10.0] <span class=" -Color -Color-Green">PASSED                  [ 16%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_run_length_control[1000.0] <span class=" -Color -Color-Green">PASSED                [ 17%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_run_length_control[25.0] <span class=" -Color -Color-Green">PASSED                  [ 19%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_run_length_control[500.0] <span class=" -Color -Color-Green">PASSED                 [ 20%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_run_length_control[143.0] <span class=" -Color -Color-Green">PASSED                 [ 22%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_arrival_numbers[data/ed_arrivals.csv] <span class=" -Color -Color-Green">PASSED     [ 23%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_arrival_numbers[data/ed_arrivals_test_1.csv] <span class=" -Color -Color-Green">PASSED [ 25%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_all_trauma[42] <span class=" -Color -Color-Green">PASSED                            [ 26%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_all_trauma[1] <span class=" -Color -Color-Green">PASSED                             [ 27%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_all_trauma[754] <span class=" -Color -Color-Green">PASSED                           [ 29%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_all_trauma[9876534321] <span class=" -Color -Color-Green">PASSED                    [ 30%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_all_trauma[76546783986555] <span class=" -Color -Color-Green">PASSED                [ 32%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_all_nontrauma[42] <span class=" -Color -Color-Green">PASSED                         [ 33%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_all_nontrauma[1] <span class=" -Color -Color-Green">PASSED                          [ 35%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_all_nontrauma[754] <span class=" -Color -Color-Green">PASSED                        [ 36%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_all_nontrauma[9876534321] <span class=" -Color -Color-Green">PASSED                 [ 38%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_all_nontrauma[76546783986555] <span class=" -Color -Color-Green">PASSED             [ 39%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_infinite_capacity[42] <span class=" -Color -Color-Green">PASSED                     [ 41%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_infinite_capacity[1] <span class=" -Color -Color-Green">PASSED                      [ 42%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_infinite_capacity[754] <span class=" -Color -Color-Green">PASSED                    [ 44%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_infinite_capacity[9876534321] <span class=" -Color -Color-Green">PASSED             [ 45%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_infinite_capacity[76546783986555] <span class=" -Color -Color-Green">PASSED         [ 47%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_infinite_capacity[9876888854637815463789] <span class=" -Color -Color-Green">PASSED [ 48%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_no_treatment_for_nontrauma[42] <span class=" -Color -Color-Green">PASSED            [ 50%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_no_treatment_for_nontrauma[1] <span class=" -Color -Color-Green">PASSED             [ 51%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_no_treatment_for_nontrauma[754] <span class=" -Color -Color-Green">PASSED           [ 52%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_no_treatment_for_nontrauma[9876534321] <span class=" -Color -Color-Green">PASSED    [ 54%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_no_treatment_for_nontrauma[76546783986555] <span class=" -Color -Color-Green">PASSED [ 55%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_all_nontrauma_no_treatment[42] <span class=" -Color -Color-Green">PASSED            [ 57%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_all_nontrauma_no_treatment[1] <span class=" -Color -Color-Green">PASSED             [ 58%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_all_nontrauma_no_treatment[754] <span class=" -Color -Color-Green">PASSED           [ 60%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_all_nontrauma_no_treatment[9876534321] <span class=" -Color -Color-Green">PASSED    [ 61%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_all_nontrauma_no_treatment[76546783986555] <span class=" -Color -Color-Green">PASSED [ 63%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_block_trauma_at_stabilisation[42] <span class=" -Color -Color-Green">PASSED         [ 64%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_block_trauma_at_stabilisation[1] <span class=" -Color -Color-Green">PASSED          [ 66%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_block_trauma_at_stabilisation[754] <span class=" -Color -Color-Green">PASSED        [ 67%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_block_trauma_at_stabilisation[9876534321] <span class=" -Color -Color-Green">PASSED [ 69%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_block_trauma_at_stabilisation[76546783986555] <span class=" -Color -Color-Green">PASSED [ 70%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_block_nontrauma_at_examination[42] <span class=" -Color -Color-Green">PASSED        [ 72%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_block_nontrauma_at_examination[1] <span class=" -Color -Color-Green">PASSED         [ 73%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_block_nontrauma_at_examination[754] <span class=" -Color -Color-Green">PASSED       [ 75%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_block_nontrauma_at_examination[9876534321] <span class=" -Color -Color-Green">PASSED [ 76%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_block_nontrauma_at_examination[76546783986555] <span class=" -Color -Color-Green">PASSED [ 77%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_block_all_arrivals_at_triage[42] <span class=" -Color -Color-Green">PASSED          [ 79%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_block_all_arrivals_at_triage[1] <span class=" -Color -Color-Green">PASSED           [ 80%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_block_all_arrivals_at_triage[754] <span class=" -Color -Color-Green">PASSED         [ 82%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_block_all_arrivals_at_triage[9876534321] <span class=" -Color -Color-Green">PASSED  [ 83%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_block_all_arrivals_at_triage[76546783986555] <span class=" -Color -Color-Green">PASSED [ 85%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_deterministic_nontrauma_pathway[42] <span class=" -Color -Color-Green">PASSED       [ 86%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_deterministic_nontrauma_pathway[1] <span class=" -Color -Color-Green">PASSED        [ 88%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_deterministic_nontrauma_pathway[754] <span class=" -Color -Color-Green">PASSED      [ 89%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_deterministic_nontrauma_pathway[9876534321] <span class=" -Color -Color-Green">PASSED [ 91%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_deterministic_nontrauma_pathway[76546783986555] <span class=" -Color -Color-Green">PASSED [ 92%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_deterministic_trauma_pathway[42] <span class=" -Color -Color-Green">PASSED          [ 94%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_deterministic_trauma_pathway[1] <span class=" -Color -Color-Green">PASSED           [ 95%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_deterministic_trauma_pathway[754] <span class=" -Color -Color-Green">PASSED         [ 97%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_deterministic_trauma_pathway[9876534321] <span class=" -Color -Color-Green">PASSED  [ 98%]</span>
+t_e22dd2e5db4242aabb0ceae84943772d.py::test_deterministic_trauma_pathway[76546783986555] <span class=" -Color -Color-Green">PASSED [100%]</span>
+
+<span class=" -Color -Color-Green">======================================= </span><span class=" -Color -Color-Bold -Color-Bold-Green">68 passed</span><span class=" -Color -Color-Green"> in 14.89s ========================================</span>
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ExitCode.OK: 0&gt;
@@ -1814,7 +1471,6 @@ t_3d9d6280cf97400b915ffcfda69e2155.py::test_single_run_results_length_and_type
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -1857,7 +1513,7 @@ By Thomas Monks
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2022.
       <br/>
     
   </p>
@@ -1881,8 +1537,8 @@ By Thomas Monks
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>
