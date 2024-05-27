@@ -1,0 +1,1285 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Python package &#8212; Treatment centre simulation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/02_model_code/06_test_package';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1. Objectives" href="../03_stress/01_objectives.html" />
+    <link rel="prev" title="Model testing" href="05_testing.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../front_page.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Treatment centre simulation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../front_page.html">
+                    Preface
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01_introduction/01_overview.html">Book overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_introduction/02_license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_introduction/03_citation.html">Citation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_introduction/05_contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_introduction/06_plain_english.html">Plain English summary</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Model code</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_problem.html">Problem description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_simpy.html">Simulaton Software Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_instr.html">Steps to reproduce results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03a_summary.html">Model technical summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_model.html">SimPy: Treatment Centre</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_testing.html">Model testing</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Python package</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">STRESS Reporting</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../03_stress/01_objectives.html">1. Objectives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_stress/02_logic.html">2. Model logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_stress/03_data.html">3. Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_stress/04_experimentation.html">4. Experimentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_stress/05_implementation.html">5. Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_stress/06_code_access.html">6. Code access</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/TomMonks/treatment-centre-sim/main?urlpath=lab/tree/content/02_model_code/06_test_package.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/TomMonks/treatment-centre-sim" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/TomMonks/treatment-centre-sim/issues/new?title=Issue%20on%20page%20%2Fcontent/02_model_code/06_test_package.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/content/02_model_code/06_test_package.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Python package</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-multiple-replications-of-the-treat-sim-model">Running multiple replications of the <code class="docutils literal notranslate"><span class="pre">treat-sim</span></code> model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-experiments">Custom experiments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-configured-experiments">Pre-configured experiments</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="python-package">
+<h1>Python package<a class="headerlink" href="#python-package" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://pypi.org/project/treat_sim/"><img alt="Python" src="https://img.shields.io/pypi/pyversions/treat_sim" /></a>
+<a class="reference external" href="https://pypi.org/project/treat-sim/"><img alt="PyPI version fury.io" src="https://badge.fury.io/py/treat-sim.svg" /></a></p>
+<p>The model is available to install from the <a class="reference external" href="https://pypi.org/project/treat-sim/">Python Package Index (PyPI)</a>. If you wish to use the model in your own code or package this is the simplest way to include it.  It can be installed from a terminal or included in an conda environment or Python virtual environment.  To install at run time use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>treat-sim
+</pre></div>
+</div>
+<section id="running-multiple-replications-of-the-treat-sim-model">
+<h2>Running multiple replications of the <code class="docutils literal notranslate"><span class="pre">treat-sim</span></code> model<a class="headerlink" href="#running-multiple-replications-of-the-treat-sim-model" title="Link to this heading">#</a></h2>
+<p>To create a custom experiment and run multiple replications of it using the m~odel you need to import the <code class="docutils literal notranslate"><span class="pre">Scenario</span></code> and <code class="docutils literal notranslate"><span class="pre">multiple_replications</span></code> functions from the <code class="docutils literal notranslate"><span class="pre">model</span></code> module. Example code is below</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">treat_sim.model</span> <span class="kn">import</span> <span class="n">Scenario</span><span class="p">,</span> <span class="n">multiple_replications</span>
+
+<span class="c1"># use all default parameter values</span>
+<span class="n">base_case</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">()</span>
+
+<span class="c1"># run replications (defaults to 5 if parameter ignored.)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">multiple_replications</span><span class="p">(</span><span class="n">base_case</span><span class="p">,</span> <span class="n">n_reps</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># show results (use print() if not using Jupyter notebooks)</span>
+<span class="n">results</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>00_arrivals</th>
+      <td>5.0</td>
+      <td>231.80</td>
+      <td>5.07</td>
+      <td>227.00</td>
+      <td>229.00</td>
+      <td>230.00</td>
+      <td>233.00</td>
+      <td>240.00</td>
+    </tr>
+    <tr>
+      <th>01a_triage_wait</th>
+      <td>5.0</td>
+      <td>30.51</td>
+      <td>15.39</td>
+      <td>17.68</td>
+      <td>24.28</td>
+      <td>24.80</td>
+      <td>28.66</td>
+      <td>57.12</td>
+    </tr>
+    <tr>
+      <th>01b_triage_util</th>
+      <td>5.0</td>
+      <td>0.61</td>
+      <td>0.03</td>
+      <td>0.57</td>
+      <td>0.61</td>
+      <td>0.61</td>
+      <td>0.62</td>
+      <td>0.64</td>
+    </tr>
+    <tr>
+      <th>02a_registration_wait</th>
+      <td>5.0</td>
+      <td>106.13</td>
+      <td>11.72</td>
+      <td>90.00</td>
+      <td>103.24</td>
+      <td>103.61</td>
+      <td>112.24</td>
+      <td>121.54</td>
+    </tr>
+    <tr>
+      <th>02b_registration_util</th>
+      <td>5.0</td>
+      <td>0.86</td>
+      <td>0.01</td>
+      <td>0.84</td>
+      <td>0.85</td>
+      <td>0.85</td>
+      <td>0.87</td>
+      <td>0.87</td>
+    </tr>
+    <tr>
+      <th>03a_examination_wait</th>
+      <td>5.0</td>
+      <td>24.84</td>
+      <td>7.07</td>
+      <td>14.69</td>
+      <td>21.37</td>
+      <td>25.51</td>
+      <td>31.09</td>
+      <td>31.56</td>
+    </tr>
+    <tr>
+      <th>03b_examination_util</th>
+      <td>5.0</td>
+      <td>0.86</td>
+      <td>0.01</td>
+      <td>0.85</td>
+      <td>0.86</td>
+      <td>0.86</td>
+      <td>0.87</td>
+      <td>0.88</td>
+    </tr>
+    <tr>
+      <th>04a_treatment_wait(non_trauma)</th>
+      <td>5.0</td>
+      <td>134.87</td>
+      <td>27.08</td>
+      <td>94.02</td>
+      <td>120.25</td>
+      <td>150.35</td>
+      <td>152.48</td>
+      <td>157.26</td>
+    </tr>
+    <tr>
+      <th>04b_treatment_util(non_trauma)</th>
+      <td>5.0</td>
+      <td>0.90</td>
+      <td>0.02</td>
+      <td>0.87</td>
+      <td>0.89</td>
+      <td>0.89</td>
+      <td>0.91</td>
+      <td>0.93</td>
+    </tr>
+    <tr>
+      <th>05_total_time(non-trauma)</th>
+      <td>5.0</td>
+      <td>232.00</td>
+      <td>14.87</td>
+      <td>208.36</td>
+      <td>233.30</td>
+      <td>233.88</td>
+      <td>234.76</td>
+      <td>249.69</td>
+    </tr>
+    <tr>
+      <th>06a_trauma_wait</th>
+      <td>5.0</td>
+      <td>209.37</td>
+      <td>63.74</td>
+      <td>133.81</td>
+      <td>149.37</td>
+      <td>236.51</td>
+      <td>250.71</td>
+      <td>276.42</td>
+    </tr>
+    <tr>
+      <th>06b_trauma_util</th>
+      <td>5.0</td>
+      <td>0.90</td>
+      <td>0.08</td>
+      <td>0.83</td>
+      <td>0.86</td>
+      <td>0.87</td>
+      <td>0.88</td>
+      <td>1.03</td>
+    </tr>
+    <tr>
+      <th>07a_treatment_wait(trauma)</th>
+      <td>5.0</td>
+      <td>11.08</td>
+      <td>4.89</td>
+      <td>3.72</td>
+      <td>9.23</td>
+      <td>12.25</td>
+      <td>13.70</td>
+      <td>16.52</td>
+    </tr>
+    <tr>
+      <th>07b_treatment_util(trauma)</th>
+      <td>5.0</td>
+      <td>0.50</td>
+      <td>0.13</td>
+      <td>0.37</td>
+      <td>0.42</td>
+      <td>0.46</td>
+      <td>0.61</td>
+      <td>0.66</td>
+    </tr>
+    <tr>
+      <th>08_total_time(trauma)</th>
+      <td>5.0</td>
+      <td>350.13</td>
+      <td>63.75</td>
+      <td>281.06</td>
+      <td>301.52</td>
+      <td>346.70</td>
+      <td>380.83</td>
+      <td>440.52</td>
+    </tr>
+    <tr>
+      <th>09_throughput</th>
+      <td>5.0</td>
+      <td>167.00</td>
+      <td>4.64</td>
+      <td>161.00</td>
+      <td>164.00</td>
+      <td>167.00</td>
+      <td>171.00</td>
+      <td>172.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="custom-experiments">
+<h2>Custom experiments<a class="headerlink" href="#custom-experiments" title="Link to this heading">#</a></h2>
+<p>Simply modify the default parameters of the <code class="docutils literal notranslate"><span class="pre">Scenario</span></code> class if you would like to run different experiments</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># an extra non trauma treatment cubicle</span>
+<span class="n">extra_cubicle_experiment</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">(</span><span class="n">n_cubicles_1</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># experiment results</span>
+<span class="n">results_extra_cubicle</span> <span class="o">=</span> <span class="n">multiple_replications</span><span class="p">(</span><span class="n">extra_cubicle_experiment</span><span class="p">,</span> <span class="n">n_reps</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># show results of experiment</span>
+<span class="n">results_extra_cubicle</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>00_arrivals</th>
+      <td>5.0</td>
+      <td>231.80</td>
+      <td>5.07</td>
+      <td>227.00</td>
+      <td>229.00</td>
+      <td>230.00</td>
+      <td>233.00</td>
+      <td>240.00</td>
+    </tr>
+    <tr>
+      <th>01a_triage_wait</th>
+      <td>5.0</td>
+      <td>30.51</td>
+      <td>15.39</td>
+      <td>17.68</td>
+      <td>24.28</td>
+      <td>24.80</td>
+      <td>28.66</td>
+      <td>57.12</td>
+    </tr>
+    <tr>
+      <th>01b_triage_util</th>
+      <td>5.0</td>
+      <td>0.61</td>
+      <td>0.03</td>
+      <td>0.57</td>
+      <td>0.61</td>
+      <td>0.61</td>
+      <td>0.62</td>
+      <td>0.64</td>
+    </tr>
+    <tr>
+      <th>02a_registration_wait</th>
+      <td>5.0</td>
+      <td>106.13</td>
+      <td>11.72</td>
+      <td>90.00</td>
+      <td>103.24</td>
+      <td>103.61</td>
+      <td>112.24</td>
+      <td>121.54</td>
+    </tr>
+    <tr>
+      <th>02b_registration_util</th>
+      <td>5.0</td>
+      <td>0.86</td>
+      <td>0.01</td>
+      <td>0.84</td>
+      <td>0.85</td>
+      <td>0.85</td>
+      <td>0.87</td>
+      <td>0.87</td>
+    </tr>
+    <tr>
+      <th>03a_examination_wait</th>
+      <td>5.0</td>
+      <td>24.84</td>
+      <td>7.07</td>
+      <td>14.69</td>
+      <td>21.37</td>
+      <td>25.51</td>
+      <td>31.09</td>
+      <td>31.56</td>
+    </tr>
+    <tr>
+      <th>03b_examination_util</th>
+      <td>5.0</td>
+      <td>0.86</td>
+      <td>0.01</td>
+      <td>0.85</td>
+      <td>0.86</td>
+      <td>0.86</td>
+      <td>0.87</td>
+      <td>0.88</td>
+    </tr>
+    <tr>
+      <th>04a_treatment_wait(non_trauma)</th>
+      <td>5.0</td>
+      <td>1.93</td>
+      <td>0.14</td>
+      <td>1.71</td>
+      <td>1.92</td>
+      <td>1.95</td>
+      <td>1.99</td>
+      <td>2.08</td>
+    </tr>
+    <tr>
+      <th>04b_treatment_util(non_trauma)</th>
+      <td>5.0</td>
+      <td>0.64</td>
+      <td>0.02</td>
+      <td>0.61</td>
+      <td>0.62</td>
+      <td>0.64</td>
+      <td>0.65</td>
+      <td>0.68</td>
+    </tr>
+    <tr>
+      <th>05_total_time(non-trauma)</th>
+      <td>5.0</td>
+      <td>188.56</td>
+      <td>8.52</td>
+      <td>177.58</td>
+      <td>184.76</td>
+      <td>187.32</td>
+      <td>192.98</td>
+      <td>200.16</td>
+    </tr>
+    <tr>
+      <th>06a_trauma_wait</th>
+      <td>5.0</td>
+      <td>209.37</td>
+      <td>63.74</td>
+      <td>133.81</td>
+      <td>149.37</td>
+      <td>236.51</td>
+      <td>250.71</td>
+      <td>276.42</td>
+    </tr>
+    <tr>
+      <th>06b_trauma_util</th>
+      <td>5.0</td>
+      <td>0.90</td>
+      <td>0.08</td>
+      <td>0.83</td>
+      <td>0.86</td>
+      <td>0.87</td>
+      <td>0.88</td>
+      <td>1.03</td>
+    </tr>
+    <tr>
+      <th>07a_treatment_wait(trauma)</th>
+      <td>5.0</td>
+      <td>11.08</td>
+      <td>4.89</td>
+      <td>3.72</td>
+      <td>9.23</td>
+      <td>12.25</td>
+      <td>13.70</td>
+      <td>16.52</td>
+    </tr>
+    <tr>
+      <th>07b_treatment_util(trauma)</th>
+      <td>5.0</td>
+      <td>0.50</td>
+      <td>0.13</td>
+      <td>0.37</td>
+      <td>0.42</td>
+      <td>0.46</td>
+      <td>0.61</td>
+      <td>0.66</td>
+    </tr>
+    <tr>
+      <th>08_total_time(trauma)</th>
+      <td>5.0</td>
+      <td>350.13</td>
+      <td>63.75</td>
+      <td>281.06</td>
+      <td>301.52</td>
+      <td>346.70</td>
+      <td>380.83</td>
+      <td>440.52</td>
+    </tr>
+    <tr>
+      <th>09_throughput</th>
+      <td>5.0</td>
+      <td>199.40</td>
+      <td>4.67</td>
+      <td>193.00</td>
+      <td>198.00</td>
+      <td>200.00</td>
+      <td>200.00</td>
+      <td>206.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="pre-configured-experiments">
+<h2>Pre-configured experiments<a class="headerlink" href="#pre-configured-experiments" title="Link to this heading">#</a></h2>
+<p>The package also includes a selection of pre-configured experiments to run.  The following code runs all experiments and display a summary of the results.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">treat_sim.model</span> <span class="kn">import</span> <span class="p">(</span><span class="n">get_scenarios</span><span class="p">,</span> <span class="n">run_scenario_analysis</span><span class="p">,</span>
+                             <span class="n">scenario_summary_frame</span><span class="p">,</span> 
+                             <span class="n">DEFAULT_RESULTS_COLLECTION_PERIOD</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">run_scenario_analysis</span><span class="p">(</span><span class="n">get_scenarios</span><span class="p">(),</span> <span class="n">DEFAULT_RESULTS_COLLECTION_PERIOD</span><span class="p">,</span>
+                                <span class="n">n_reps</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Scenario Analysis
+No. Scenario: 6
+Replications: 50
+Running base =&gt; 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done.
+
+Running triage+1 =&gt; 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done.
+
+Running exam+1 =&gt; 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done.
+
+Running treat+1 =&gt; 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done.
+
+Running swap_exam_treat =&gt; 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done.
+
+Running short_exam =&gt; 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done.
+
+Scenario analysis complete.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scenario_summary_frame</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>base</th>
+      <th>triage+1</th>
+      <th>exam+1</th>
+      <th>treat+1</th>
+      <th>swap_exam_treat</th>
+      <th>short_exam</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>00_arrivals</th>
+      <td>227.720000</td>
+      <td>227.720000</td>
+      <td>227.720000</td>
+      <td>227.720000</td>
+      <td>227.720000</td>
+      <td>227.720000</td>
+    </tr>
+    <tr>
+      <th>01a_triage_wait</th>
+      <td>35.243019</td>
+      <td>1.325176</td>
+      <td>35.243019</td>
+      <td>35.243019</td>
+      <td>1.325176</td>
+      <td>1.325176</td>
+    </tr>
+    <tr>
+      <th>01b_triage_util</th>
+      <td>0.607039</td>
+      <td>0.303519</td>
+      <td>0.607039</td>
+      <td>0.607039</td>
+      <td>0.303519</td>
+      <td>0.303519</td>
+    </tr>
+    <tr>
+      <th>02a_registration_wait</th>
+      <td>105.572644</td>
+      <td>135.915119</td>
+      <td>105.572644</td>
+      <td>105.572644</td>
+      <td>135.915119</td>
+      <td>135.915119</td>
+    </tr>
+    <tr>
+      <th>02b_registration_util</th>
+      <td>0.840613</td>
+      <td>0.843954</td>
+      <td>0.840613</td>
+      <td>0.840613</td>
+      <td>0.843954</td>
+      <td>0.843954</td>
+    </tr>
+    <tr>
+      <th>03a_examination_wait</th>
+      <td>25.552525</td>
+      <td>26.688866</td>
+      <td>0.146565</td>
+      <td>25.552525</td>
+      <td>148.865965</td>
+      <td>66.003847</td>
+    </tr>
+    <tr>
+      <th>03b_examination_util</th>
+      <td>0.850448</td>
+      <td>0.853567</td>
+      <td>0.667856</td>
+      <td>0.850448</td>
+      <td>0.893629</td>
+      <td>0.868998</td>
+    </tr>
+    <tr>
+      <th>04a_treatment_wait(non_trauma)</th>
+      <td>136.660635</td>
+      <td>138.575405</td>
+      <td>151.808204</td>
+      <td>2.280962</td>
+      <td>33.568594</td>
+      <td>111.337103</td>
+    </tr>
+    <tr>
+      <th>04b_treatment_util(non_trauma)</th>
+      <td>0.867238</td>
+      <td>0.869324</td>
+      <td>0.867691</td>
+      <td>0.629346</td>
+      <td>0.836384</td>
+      <td>0.871039</td>
+    </tr>
+    <tr>
+      <th>05_total_time(non-trauma)</th>
+      <td>234.335783</td>
+      <td>232.133275</td>
+      <td>223.063821</td>
+      <td>192.191909</td>
+      <td>280.729440</td>
+      <td>244.797808</td>
+    </tr>
+    <tr>
+      <th>06a_trauma_wait</th>
+      <td>151.680557</td>
+      <td>175.135269</td>
+      <td>151.680557</td>
+      <td>151.680557</td>
+      <td>175.135269</td>
+      <td>175.135269</td>
+    </tr>
+    <tr>
+      <th>06b_trauma_util</th>
+      <td>0.826941</td>
+      <td>0.840977</td>
+      <td>0.826941</td>
+      <td>0.826941</td>
+      <td>0.840977</td>
+      <td>0.840977</td>
+    </tr>
+    <tr>
+      <th>07a_treatment_wait(trauma)</th>
+      <td>14.305044</td>
+      <td>14.997287</td>
+      <td>14.305044</td>
+      <td>14.305044</td>
+      <td>14.997287</td>
+      <td>14.997287</td>
+    </tr>
+    <tr>
+      <th>07b_treatment_util(trauma)</th>
+      <td>0.501010</td>
+      <td>0.506908</td>
+      <td>0.501010</td>
+      <td>0.501010</td>
+      <td>0.506908</td>
+      <td>0.506908</td>
+    </tr>
+    <tr>
+      <th>08_total_time(trauma)</th>
+      <td>292.280487</td>
+      <td>282.783517</td>
+      <td>292.280487</td>
+      <td>292.280487</td>
+      <td>282.783517</td>
+      <td>282.783517</td>
+    </tr>
+    <tr>
+      <th>09_throughput</th>
+      <td>162.160000</td>
+      <td>162.920000</td>
+      <td>165.880000</td>
+      <td>195.300000</td>
+      <td>138.540000</td>
+      <td>156.600000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "TomMonks/treatment-centre-sim",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./content/02_model_code"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="05_testing.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Model testing</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../03_stress/01_objectives.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">1. Objectives</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-multiple-replications-of-the-treat-sim-model">Running multiple replications of the <code class="docutils literal notranslate"><span class="pre">treat-sim</span></code> model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-experiments">Custom experiments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-configured-experiments">Pre-configured experiments</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Thomas Monks
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
