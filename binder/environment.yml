@@ -14,3 +14,6 @@ dependencies:
   - python=3.10.14
   - scipy=1.13.0
   - simpy=4.1.1
+  - sim-tools=0.4.0
+  - pip:
+    - treat-sim
