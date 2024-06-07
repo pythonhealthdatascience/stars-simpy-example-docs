@@ -6,7 +6,6 @@ parts:
   - file: content/01_introduction/01_overview
   - file: content/01_introduction/02_license
   - file: content/01_introduction/03_citation
-  - file: content/01_introduction/04_openworking
   - file: content/01_introduction/05_contributing
   - file: content/01_introduction/06_plain_english
 - caption: Model code
@@ -16,6 +15,8 @@ parts:
   - file: content/02_model_code/03_instr
   - file: content/02_model_code/03a_summary
   - file: content/02_model_code/04_model
+  - file: content/02_model_code/05_testing
+  - file: content/02_model_code/06_test_package
 - caption: STRESS Reporting
   chapters:
   - file: content/03_stress/01_objectives
