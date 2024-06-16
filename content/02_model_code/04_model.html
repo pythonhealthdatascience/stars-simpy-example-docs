@@ -632,16 +632,16 @@ document.write(`
 </pre></div>
 </div>
 <p>It is then trivial to suppress messages to a user</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trace</span> <span class="o">=</span> <span class="n">SimulatedTrace</span><span class="p">(</span><span class="n">log_level</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trace</span> <span class="o">=</span> <span class="n">SimulatedTrace</span><span class="p">(</span><span class="n">trace_level</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># this will not be printed as log_level is 0 by default</span>
-<span class="n">trace</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+<span class="n">trace</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
 
 <span class="c1"># this will NOT be printed in this experiment as log_level is less than 2</span>
-<span class="n">trace</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;level 1 message&quot;</span><span class="p">,</span> <span class="n">log_level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">trace</span><span class="p">(</span><span class="s2">&quot;level 1 message&quot;</span><span class="p">,</span> <span class="n">trace_level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># this will be printed!</span>
-<span class="n">trace</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;level 2 message&quot;</span><span class="p">,</span> <span class="n">log_level</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">trace</span><span class="p">(</span><span class="s2">&quot;level 2 message&quot;</span><span class="p">,</span> <span class="n">trace_level</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="cell docutils container">
@@ -1998,8 +1998,8 @@ document.write(`
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done.
 
-CPU times: user 1.38 s, sys: 44.2 ms, total: 1.43 s
-Wall time: 4.86 s
+CPU times: user 1.32 s, sys: 60.9 ms, total: 1.38 s
+Wall time: 4.83 s
 </pre></div>
 </div>
 <div class="output text_html"><div>
