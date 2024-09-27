@@ -18,15 +18,12 @@ jobs:
     - name: Check out repository
       uses: actions/checkout@v4
 
-    - name: Setup Miniconda with python 3.10 and dependencies
-      uses: conda-incubator/setup-miniconda@v2
+    - name: Install python and dependencies
+      uses: actions/setup-python@v4
       with:
-        auto-update-conda: true
-        auto-activate-base: false
-        miniconda-version: 'latest'
-        python-version: 3.10
-        environment-file: binder/environment.yml
-        activate-environment: qe-mini-example
+        python-version: '3.10'
+        cache: 'pip'
+    - run: pip install -r binder/requirements.txt
 
     - name: Build the book
       run: |
