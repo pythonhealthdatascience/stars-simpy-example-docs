@@ -23,8 +23,8 @@ The materials and methods in this repository support work towards developing the
 
 ## Author ORCIDs
 
-[![ORCID: Harper](https://img.shields.io/badge/ORCID-0000--0001--5274--5037-brightgreen)](https://orcid.org/0000-0001-5274-5037)
-[![ORCID: Monks](https://img.shields.io/badge/ORCID-0000--0003--2631--4481-brightgreen)](https://orcid.org/0000-0003-2631-4481)
+[![ORCID: Harper](https://img.shields.io/badge/ORCID:_Harper-0000--0001--5274--5037-brightgreen)](https://orcid.org/0000-0001-5274-5037)
+[![ORCID: Monks](https://img.shields.io/badge/ORCID:_Monks-0000--0003--2631--4481-brightgreen)](https://orcid.org/0000-0003-2631-4481)
 
 ## Citation
 
@@ -86,7 +86,7 @@ git clone https://github.com/pythonhealthdatascience/stars-simpy-example-docs
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/release/python-360+/)
 
-All dependencies can be found in [`binder/environment.yml`]() and are pulled from conda-forge.  To run the code locally, we recommend install [mini-conda](https://docs.conda.io/en/latest/miniconda.html); navigating your terminal (or cmd prompt) to the directory containing the repo and issuing the following command:
+All dependencies can be found in `binder/environment.yml` and are pulled from conda-forge. To run the code locally, we recommend install [mini-conda](https://docs.conda.io/en/latest/miniconda.html); navigating your terminal (or cmd prompt) to the directory containing the repo and issuing the following command:
 
 ```bash
 conda env create -f binder/environment.yml
@@ -95,17 +95,17 @@ conda env create -f binder/environment.yml
 To activate the environment issue the following command:
 
 ```bash
-conda activate stars_docs`
+conda activate stars_docs
 ```
 
 ### Building the book
 
-In the directory (folder) containing the code issue the following command via the terminal (or cmd prompt/powershell on windows)
+In the directory (folder) containing the code (i.e. where `_toc.yml` and `_config.yml` are located), issue the following command via the terminal (or cmd prompt/powershell on windows)
 
 ```bash
 jb build .
 ```
 
-> The configutation of the book has been setup to re-run all of the notebooks.  It may take a few minutes to execute on your local machine.
+> The configuration of the book has been setup to re-run all of the notebooks. It may take a few minutes to execute on your local machine.
 
 When the build is complete Jupyter book will display a hyper-link to the book that has been built on your machine.  Click on the link (or copy paste into a browser) to run it.
