@@ -4,7 +4,6 @@ on:
   push:
     branches:
     - main
-    - dev_amy
   workflow_dispatch:
 
 jobs:
@@ -28,8 +27,11 @@ jobs:
       run: |
         jb build .
 
-    - name: Deploy to GitHub pages
-      uses: peaceiris/actions-gh-pages@v4
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v2
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./_build/html
+        path: "_build/html"
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v2
