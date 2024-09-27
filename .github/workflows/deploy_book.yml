@@ -3,7 +3,9 @@ name: deploy-book
 # Updates on push to main or when triggered manually
 on:
   push:
-    branches: main
+    branches:
+    - main
+    - dev_amy
   workflow_dispatch:
 
 jobs:
