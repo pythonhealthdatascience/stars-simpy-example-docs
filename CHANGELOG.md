@@ -11,6 +11,7 @@ The following are in progress, and are a record of changes between various branc
 
 ### Added
 
+* Created and back-dated a `CHANGELOG.md`
 * GitHub action to deploy book on push to main
 * Copy of environment as `requirements.txt` for GitHub action (as conda environment was very slow and had an error)
 
