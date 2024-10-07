@@ -1,0 +1,38 @@
+name: deploy-book
+
+on:
+  push:
+    branches:
+    - main
+    - dev_amy
+  workflow_dispatch:
+
+jobs:
+  deploy-book:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v4
+
+    - name: Install python and dependencies
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        cache: 'pip'
+    - run: pip install -r binder/requirements.txt
+
+    - name: Build the book
+      run: |
+        jb build .
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v2
+      with:
+        path: "_build/html"
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v2

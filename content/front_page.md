@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.11102373.svg)](https://doi.org/10.5281/zenodo.11102373)
 
-This book contains example enhanced documentation and open working for a discrete-event simulation model. The model is a based on the treatment centre example in Nelson [1]. The model is implemented in `python` and `simpy`.
+This book contains example enhanced documentation and open working for a discrete-event simulation model. The model is a based on the treatment centre example in [Nelson (2013)](https://doi.org/10.1007/978-3-030-86194-0). The model is implemented in `python` and `simpy`.
 
 ##   Towards Sharing Tools and Artifacts for Reusable Simulation: example enhanced documentation for a `simpy` model. 
 
@@ -18,5 +18,5 @@ The materials and methods in this repository support work towards developing the
 
 ## Author ORCIDs
 
-[![ORCID: Harper](https://img.shields.io/badge/ORCID-0000--0001--5274--5037-brightgreen)](https://orcid.org/0000-0001-5274-5037)
-[![ORCID: Monks](https://img.shields.io/badge/ORCID-0000--0003--2631--4481-brightgreen)](https://orcid.org/0000-0003-2631-4481)
+[![ORCID: Harper](https://img.shields.io/badge/ORCID:_Harper-0000--0001--5274--5037-brightgreen)](https://orcid.org/0000-0001-5274-5037)
+[![ORCID: Monks](https://img.shields.io/badge/ORCID:_Monks-0000--0003--2631--4481-brightgreen)](https://orcid.org/0000-0003-2631-4481)
