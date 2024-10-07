@@ -4,7 +4,7 @@ author: Thomas Monks
 email: t.m.w.monks@exeter.ac.uk
 description: >- # this means to ignore newlines until "baseurl:"
   Example documentation and open working for computer simulation
-# logo: content/imgs/small_logo.png
+logo: content/imgs/stars_treatsim.png
 
 # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
@@ -17,7 +17,7 @@ execute:
   timeout: -1 #no time restriction on notebook execution
   
 repository:
-  url: https://github.com/TomMonks/treatment-centre-sim
+  url: https://github.com/pythonhealthdatascience/stars-simpy-example-docs
   branch: main
   
 html:

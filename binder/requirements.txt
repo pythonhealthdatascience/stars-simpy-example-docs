@@ -1,0 +1,14 @@
+ipytest==0.14.2
+joblib==0.15.1
+jupyter-book==1.0.0
+jupyterlab==3.0.9
+matplotlib==3.8.4
+numpy==1.26.4
+pandas==2.2.2
+pip==24.0
+pytest==8.2.1
+rich==13.7.1
+scipy==1.13.0
+simpy==4.1.1
+sim-tools==0.4.0
+treat-sim
